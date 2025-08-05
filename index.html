@@ -817,6 +817,40 @@
             border-radius: 8px;
             transition: all 0.5s ease;
         }
+        
+        .faq-section {
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: rgba(26, 115, 232, 0.05);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
     </style>
 </head>
 <body>
@@ -833,6 +867,7 @@
                 <div class="tab" data-tab="visualization">Mô Phỏng</div>
                 <div class="tab" data-tab="interaction">Thực Hành</div>
                 <div class="tab" data-tab="performance">Hiệu Suất</div>
+                <div class="tab" data-tab="faq">FAQ</div>
             </div>
         </header>
         
@@ -1201,10 +1236,57 @@
             </div>
         </div>
         
+        <div class="tab-content" id="faq-tab">
+            <div class="explanation">
+                <h2><i class="fas fa-question-circle"></i> Câu Hỏi Thường Gặp (FAQ)</h2>
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Shard là gì?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Một shard là một máy chủ hoặc một cụm máy chủ lưu trữ một phần dữ liệu của toàn bộ collection. Mỗi shard có thể là một replica set để đảm bảo tính sẵn sàng cao.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Shard key là gì và tại sao nó quan trọng?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Shard key là một trường hoặc một tập hợp các trường trong tài liệu được sử dụng để phân phối dữ liệu trên các shard. Việc chọn shard key tốt là rất quan trọng để đảm bảo dữ liệu được phân phối đều và hiệu suất truy vấn cao.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Chunk là gì?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Một chunk là một dải liên tục của các giá trị shard key. MongoDB chia dữ liệu thành các chunk và phân phối chúng trên các shard. Mỗi chunk có kích thước mặc định là 64MB.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <footer>
-            <p>MongoDB Sharding Interactive Experience &copy; 2023 - Phiên bản đã sửa toàn bộ lỗi</p>
-            <p>Tất cả tính năng đã được kiểm tra và hoạt động hoàn hảo</p>
+            <p>MongoDB Sharding Interactive Experience &copy; 2025 - Nguyễn Ngọc Khánh</p>
         </footer>
+    </div>
+
+    <!-- Chunk Detail Popup -->
+    <div class="backdrop" id="chunk-backdrop"></div>
+    <div class="chunk-popup" id="chunk-popup">
+        <span class="close-popup" id="close-chunk-popup">&times;</span>
+        <h3><i class="fas fa-cube"></i> Chi Tiết Chunk</h3>
+        <div class="chunk-popup-content" id="chunk-popup-content">
+            <p><strong>ID:</strong> <span id="chunk-id-detail"></span></p>
+            <p><strong>Phạm vi (Range):</strong> <span id="chunk-range-detail"></span></p>
+            <p><strong>Shard hiện tại:</strong> <span id="chunk-shard-detail"></span></p>
+            <p><strong>Số lượng tài liệu (ước tính):</strong> <span id="chunk-docs-detail"></span></p>
+        </div>
     </div>
 
     <script>
@@ -1822,6 +1904,14 @@
         });
         
         window.addEventListener('resize', initDataFlows);
+
+        // Xử lý FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>
