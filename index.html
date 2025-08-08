@@ -42,15 +42,15 @@
 
     @keyframes gradientBG {
       0% {
-        background-position: 0% 50%
+        background-position: 0% 50%;
       }
 
       50% {
-        background-position: 100% 50%
+        background-position: 100% 50%;
       }
 
       100% {
-        background-position: 0% 50%
+        background-position: 0% 50%;
       }
     }
 
@@ -77,7 +77,7 @@
     header h1 {
       font-size: 2.4rem;
       margin-bottom: 15px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       background: linear-gradient(90deg, #4facfe, #00f2fe);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -90,7 +90,7 @@
       margin: 0 auto 25px;
       line-height: 1.6;
       color: var(--text-light);
-      opacity: .9;
+      opacity: 0.9;
     }
 
     .tabs {
@@ -102,24 +102,26 @@
     }
 
     .tab {
-      background: rgba(255, 255, 255, .15);
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 50px;
       padding: 12px 18px;
       cursor: pointer;
-      transition: .3s;
+      transition: all 0.3s ease;
       font-weight: 500;
       color: var(--text-light);
       border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
       user-select: none;
     }
 
     .tab:hover {
-      background: rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, 0.25);
     }
 
     .tab.active {
       background: var(--primary);
-      box-shadow: 0 5px 15px rgba(26, 115, 232, .4);
+      box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
       border-color: var(--accent);
     }
 
@@ -129,18 +131,18 @@
 
     .tab-content.active {
       display: block;
-      animation: fadeIn .5s ease;
+      animation: fadeIn 0.5s ease;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(20px)
+        transform: translateY(20px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0)
+        transform: translateY(0);
       }
     }
 
@@ -151,25 +153,27 @@
       margin-bottom: 40px;
     }
 
-    .shard-cluster,
-    .controls {
+    .shard-cluster {
+      flex: 3;
+      min-width: 700px;
       background: var(--card-bg);
       border-radius: 20px;
       padding: 25px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, .2);
-    }
-
-    .shard-cluster {
-      flex: 3;
-      min-width: 700px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       position: relative;
     }
 
     .controls {
       flex: 1;
       min-width: 300px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .section-title {
@@ -204,12 +208,12 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(255, 152, 0, .4);
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
       position: relative;
       animation: pulse 2s infinite;
       cursor: pointer;
-      transition: .3s;
+      transition: all 0.3s ease;
       z-index: 10;
       user-select: none;
     }
@@ -232,20 +236,20 @@
     }
 
     .shard {
-      background: rgba(26, 115, 232, .08);
+      background: rgba(26, 115, 232, 0.08);
       border-radius: 15px;
       padding: 20px;
       min-width: 220px;
       text-align: center;
       position: relative;
-      transition: .3s;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
-      border: 1px solid rgba(26, 115, 232, .15);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(26, 115, 232, 0.15);
       z-index: 10;
     }
 
     .shard:hover {
-      background: rgba(26, 115, 232, .15);
+      background: rgba(26, 115, 232, 0.15);
       transform: translateY(-5px);
     }
 
@@ -269,15 +273,15 @@
     }
 
     .chunk {
-      background: rgba(0, 150, 136, .8);
+      background: rgba(0, 150, 136, 0.8);
       padding: 12px;
       border-radius: 8px;
-      transition: .2s;
+      transition: all 0.2s ease;
       cursor: grab;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #fff;
+      color: white;
       font-weight: 500;
       position: relative;
       user-select: none;
@@ -288,7 +292,7 @@
     }
 
     .chunk:hover {
-      background: rgba(0, 150, 136, .95);
+      background: rgba(0, 150, 136, 0.95);
       transform: scale(1.02);
     }
 
@@ -310,10 +314,10 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
-      box-shadow: 0 5px 15px rgba(123, 31, 162, .4);
+      color: white;
+      box-shadow: 0 5px 15px rgba(123, 31, 162, 0.4);
       cursor: pointer;
-      transition: .3s;
+      transition: all 0.3s ease;
       user-select: none;
     }
 
@@ -343,7 +347,7 @@
       align-items: center;
       justify-content: space-between;
       margin-top: 8px;
-      font-size: .9rem;
+      font-size: 0.9rem;
       color: #333;
     }
 
@@ -351,7 +355,7 @@
       width: 100%;
       height: 10px;
       -webkit-appearance: none;
-      background: rgba(26, 115, 232, .2);
+      background: rgba(26, 115, 232, 0.2);
       border-radius: 5px;
       outline: none;
     }
@@ -363,14 +367,14 @@
       background: var(--primary);
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .value-display {
       display: inline-flex;
       min-width: 42px;
       text-align: center;
-      background: rgba(26, 115, 232, .1);
+      background: rgba(26, 115, 232, 0.1);
       padding: 5px 10px;
       border-radius: 5px;
       font-weight: 600;
@@ -380,13 +384,13 @@
 
     button {
       background: linear-gradient(45deg, var(--primary), var(--secondary));
-      color: #fff;
+      color: white;
       border: none;
       padding: 12px 16px;
       font-size: 1rem;
       border-radius: 8px;
       cursor: pointer;
-      transition: .2s;
+      transition: all 0.2s ease;
       width: 100%;
       margin-top: 10px;
       display: flex;
@@ -399,30 +403,18 @@
     button:hover {
       background: linear-gradient(45deg, #0d47a1, #002171);
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(13, 71, 161, .4);
+      box-shadow: 0 5px 15px rgba(13, 71, 161, 0.4);
     }
 
     button:disabled {
-      opacity: .65;
+      opacity: 0.65;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
     }
 
-    .btn-secondary {
-      background: linear-gradient(45deg, #607D8B, #37474F);
-    }
-
-    .btn-danger {
-      background: linear-gradient(45deg, #f44336, #c62828);
-    }
-
-    .btn-success {
-      background: linear-gradient(45deg, #2e7d32, #1b5e20);
-    }
-
     .info-box {
-      background: rgba(26, 115, 232, .06);
+      background: rgba(26, 115, 232, 0.06);
       border-left: 4px solid var(--primary);
       padding: 16px;
       border-radius: 0 8px 8px 0;
@@ -448,56 +440,60 @@
 
     @keyframes pulse {
       0% {
-        box-shadow: 0 0 0 0 rgba(255, 152, 0, .7)
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
       }
 
       70% {
-        box-shadow: 0 0 0 15px rgba(255, 152, 0, 0)
+        box-shadow: 0 0 0 15px rgba(255, 152, 0, 0);
       }
 
       100% {
-        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0)
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
       }
     }
 
-    .data-flow,
+    /* OLD data-flow, now used for bus and connectors */
+    .data-flow {
+      position: absolute;
+      background: var(--dark);
+      z-index: 1;
+    }
+
+    .network-bus {
+      height: 4px;
+    }
+    
     .data-flow-animation {
       position: absolute;
-      height: 4px;
       background: linear-gradient(90deg, #00bcd4, #ff9800);
       border-radius: 2px;
-      z-index: 2;
+      z-index: 5;
       transform-origin: left;
     }
 
-    .data-flow-animation {
-      animation: flow 2s infinite;
-    }
-
     @keyframes flow {
-      0% {
-        width: 0;
-        opacity: 0
+      from {
+        transform: scaleY(0);
+        opacity: 0;
       }
-
       50% {
-        opacity: 1
+        opacity: 1;
       }
-
-      100% {
-        width: 100%;
-        opacity: 0
+      to {
+        transform: scaleY(1);
+        opacity: 1;
       }
     }
 
-    @media (max-width:1100px) {
+
+    @media (max-width: 1100px) {
       .visualization-container {
-        flex-direction: column
+        flex-direction: column;
       }
 
       .shard-cluster,
       .controls {
-        min-width: 100%
+        min-width: 100%;
       }
     }
 
@@ -546,7 +542,7 @@
       padding: 16px;
       box-shadow: var(--shadow);
       border-left: 4px solid var(--accent);
-      transition: .2s;
+      transition: all 0.2s ease;
     }
 
     .step:hover {
@@ -556,7 +552,7 @@
 
     .step-number {
       background: var(--primary);
-      color: #fff;
+      color: white;
       width: 34px;
       height: 34px;
       border-radius: 50%;
@@ -596,7 +592,7 @@
     .simulation-result {
       margin-top: 12px;
       padding: 12px;
-      background: rgba(26, 115, 232, .05);
+      background: rgba(26, 115, 232, 0.05);
       border-radius: 8px;
       min-height: 100px;
       border-left: 4px solid var(--primary);
@@ -611,20 +607,20 @@
 
     .key-option {
       padding: 8px 12px;
-      background: rgba(26, 115, 232, .1);
+      background: rgba(26, 115, 232, 0.1);
       border-radius: 20px;
       cursor: pointer;
-      transition: .2s;
+      transition: all 0.2s ease;
       border: 1px solid transparent;
     }
 
     .key-option:hover {
-      background: rgba(26, 115, 232, .2)
+      background: rgba(26, 115, 232, 0.2);
     }
 
     .key-option.active {
       background: var(--primary);
-      color: #fff;
+      color: white;
       border-color: var(--accent);
     }
 
@@ -642,7 +638,7 @@
 
     .faq-question {
       padding: 16px;
-      background: rgba(26, 115, 232, .07);
+      background: rgba(26, 115, 232, 0.07);
       font-weight: 500;
       cursor: pointer;
       display: flex;
@@ -654,7 +650,12 @@
       padding: 0 16px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height .25s ease;
+      transition: max-height 0.25s ease;
+    }
+    
+    .faq-answer ul {
+      padding-left: 18px;
+      margin-top: 10px;
     }
 
     .faq-item.active .faq-answer {
@@ -667,31 +668,31 @@
       padding: 26px 0;
       margin-top: 34px;
       color: var(--text-light);
-      border-top: 1px solid rgba(255, 255, 255, .1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .chunk-drag-ghost {
       position: absolute;
       padding: 10px;
       border-radius: 8px;
-      background: rgba(0, 150, 136, .95);
-      color: #fff;
+      background: rgba(0, 150, 136, 0.95);
+      color: white;
       font-weight: 600;
       z-index: 1000;
       pointer-events: none;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transform: translate(-50%, -50%);
     }
 
     .shard-dropzone {
       border: 2px dashed var(--primary);
-      background: rgba(26, 115, 232, .08);
-      transition: .2s;
+      background: rgba(26, 115, 232, 0.08);
+      transition: all 0.2s;
     }
 
     .shard-dropzone.highlight {
       border-color: var(--success);
-      background: rgba(76, 175, 80, .15);
+      background: rgba(76, 175, 80, 0.15);
       transform: scale(1.02);
     }
 
@@ -720,7 +721,7 @@
     }
 
     .metric-label {
-      font-size: .9rem;
+      font-size: 0.9rem;
       color: var(--dark);
     }
 
@@ -761,10 +762,11 @@
       color: #4ec9b0;
     }
 
+    /* Popup chi tiết chunk */
     .backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .35);
+      background: rgba(0, 0, 0, 0.35);
       display: none;
       z-index: 900;
     }
@@ -777,7 +779,7 @@
       background: #fff;
       border-radius: 12px;
       padding: 18px 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       z-index: 1000;
       width: min(420px, 92vw);
       display: none;
@@ -800,12 +802,17 @@
       color: #777;
     }
 
+    .chunk-popup-content p {
+      margin: 6px 0;
+    }
+
+    /* Config popup */
     .config-popup {
       position: absolute;
-      background: #fff;
+      background: white;
       border-radius: 10px;
       padding: 16px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
       z-index: 100;
       max-width: 420px;
       display: none;
@@ -823,6 +830,7 @@
       overflow-x: auto;
     }
 
+    /* Distribution effect dynamic */
     .distribution-effect {
       display: flex;
       gap: 8px;
@@ -834,252 +842,20 @@
       text-align: center;
       padding: 8px 10px;
       border-radius: 8px;
-      transition: .2s;
-      background: rgba(26, 115, 232, .1);
-      font-weight: 600;
-      min-width: 110px;
-    }
-
-    /* NEW: shard-mini for architecture */
-    .shard-mini {
+      transition: all 0.2s ease;
       background: rgba(26, 115, 232, 0.1);
-      border: 1px dashed rgba(26, 115, 232, 0.6);
-      padding: 10px 12px;
-      border-radius: 10px;
+      font-weight: 600;
       min-width: 110px;
-      text-align: center;
-      font-weight: 600;
     }
 
-    /* NEW: modal (Connection Helper) */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      place-items: center;
-      background: rgba(0, 0, 0, .45);
-      z-index: 1100;
-    }
-
-    .modal .modal-card {
-      width: min(720px, 95vw);
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .3);
-      padding: 18px;
-      max-height: 90vh;
-      overflow: auto;
-    }
-
-    .modal .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .modal h3 {
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
-
-    .modal .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .modal .grid-1 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .modal label {
-      font-weight: 600;
-      color: #123;
-      font-size: .95rem;
-    }
-
-    .modal input,
-    .modal select,
-    .modal textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #e0e0e0;
+    .shard-mini {
+      background: var(--primary);
+      color: white;
+      padding: 10px 15px;
       border-radius: 8px;
-      font-size: .95rem;
+      font-weight: bold;
     }
 
-    .modal .row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .muted {
-      color: #666;
-      font-size: .9rem;
-    }
-
-    /* NEW: topology map card */
-    .diagram-card {
-      margin-top: 16px;
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0, 0, 0, .05);
-    }
-
-    .diagram-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .topology {
-      position: relative;
-      width: 100%;
-      height: 260px;
-    }
-
-    .top-node {
-      position: absolute;
-      padding: 8px 10px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
-      border: 1px solid rgba(0, 0, 0, .08);
-      min-width: 90px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .top-link {
-      position: absolute;
-      height: 3px;
-      background: linear-gradient(90deg, #00bcd4, #1a73e8);
-      transform-origin: left;
-      opacity: .8;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 30px;
-      font-size: .75rem;
-      font-weight: 700;
-    }
-
-    .badge.ok {
-      background: rgba(76, 175, 80, .12);
-      color: #2e7d32;
-      border: 1px solid rgba(76, 175, 80, .35);
-    }
-
-    .badge.down {
-      background: rgba(244, 67, 54, .12);
-      color: #c62828;
-      border: 1px solid rgba(244, 67, 54, .35);
-    }
-
-    /* NEW: heatmap */
-    .heatmap {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      gap: 3px;
-      margin-top: 10px;
-    }
-
-    .heat-cell {
-      height: 18px;
-      border-radius: 4px;
-      background: #e0e0e0;
-      position: relative;
-    }
-
-    .heat-cell[data-v="0"] {
-      opacity: .35
-    }
-
-    .heat-cell[data-v="1"] {
-      background: #bbdefb
-    }
-
-    .heat-cell[data-v="2"] {
-      background: #90caf9
-    }
-
-    .heat-cell[data-v="3"] {
-      background: #64b5f6
-    }
-
-    .heat-cell[data-v="4"] {
-      background: #42a5f5
-    }
-
-    .heat-cell[data-v="5"] {
-      background: #2196f3
-    }
-
-    .heat-cell[data-v="6"] {
-      background: #1e88e5
-    }
-
-    .heat-cell[data-v="7"] {
-      background: #1976d2
-    }
-
-    .heat-cell[data-v="8"] {
-      background: #1565c0
-    }
-
-    .heat-legend {
-      display: flex;
-      justify-content: space-between;
-      font-size: .8rem;
-      margin-top: 6px;
-      color: #345;
-    }
-
-    /* NEW: toast */
-    .toast {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      background: #111;
-      color: #fff;
-      padding: 12px 14px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: .25s;
-      z-index: 1200;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* NEW: inline code */
-    .code-inline {
-      background: #f6f8fa;
-      border: 1px solid #e0e0e0;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-family: monospace;
-    }
-
-    /* Prevent slider bubbling interfering with DnD */
-    input[type="range"] {
-      pointer-events: auto;
-    }
   </style>
 </head>
 
@@ -1150,10 +926,10 @@
 
           <div class="mongos-container">
             <div class="mongos" id="mongos1" title="Mongos Router - Nhấp để mô phỏng"><i class="fas fa-random"></i>
-              <div>Mongos</div>
+              <div>Mongos 1</div>
             </div>
             <div class="mongos" id="mongos2" title="Mongos Router - Nhấp để mô phỏng"><i class="fas fa-random"></i>
-              <div>Mongos</div>
+              <div>Mongos 2</div>
             </div>
           </div>
 
@@ -1225,6 +1001,7 @@
               <option value="loadbalance">Cân bằng tải</option>
               <option value="geo">Theo khu vực địa lý</option>
             </select>
+            <div id="distribution-explanation" class="info-box" style="display: none; margin-top: 15px;"></div>
           </div>
 
           <button id="add-data"><i class="fas fa-plus-circle"></i> Thêm Dữ Liệu Mẫu</button>
@@ -1293,8 +1070,7 @@
           <div class="step">
             <div class="step-number">2</div>
             <h3>Mô phỏng truy vấn</h3>
-            <p>Nhập một truy vấn và xem nó được xử lý như thế nào:</n>
-            </p>
+            <p>Nhập một truy vấn và xem nó được xử lý như thế nào:</p>
             <div class="simulation-controls">
               <input type="text" class="simulation-input" id="interactive-query" placeholder='{"user_id": 2500}' />
               <button id="run-query"><i class="fas fa-play"></i> Thực thi truy vấn</button>
@@ -1325,14 +1101,7 @@
             </div>
             <button id="design-architecture"><i class="fas fa-drafting-compass"></i> Thiết kế kiến trúc</button>
             <div id="architecture-result" class="simulation-result">
-              <div class="architecture-visual">
-                <div style="display: flex; justify-content: center; gap: 12px; margin: 14px 0; flex-wrap: wrap;">
-                  <div class="shard-mini">Shard 1</div>
-                  <div class="shard-mini">Shard 2</div>
-                  <div class="shard-mini">Shard 3</div>
-                </div>
-                <p>Kiến trúc mẫu với 3 shard cho dữ liệu 10TB</p>
-              </div>
+                <p>Kết quả đề xuất kiến trúc của bạn sẽ xuất hiện ở đây sau khi bạn nhấp vào nút "Thiết kế".</p>
             </div>
           </div>
         </div>
@@ -1358,6 +1127,7 @@
               <label for="load-level">Mức độ tải: <span id="load-value" class="value-display">Trung bình</span></label>
               <input type="range" id="load-level" min="1" max="3" value="2" />
               <div class="slider-container"><span>Thấp</span><span>Cao</span></div>
+              <small style="display: block; text-align: center; margin-top: 5px; color: #555;">Sử dụng thanh trượt để điều chỉnh</small>
             </div>
             <div class="performance-metrics">
               <div class="metric-card">
@@ -1412,6 +1182,35 @@
                 phối chúng trên các shard. Mỗi chunk có kích thước mặc định là 64MB.</p>
             </div>
           </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>Mongos là gì?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+              <p><span class="key-term">Mongos</span> hoạt động như một bộ định tuyến truy vấn (query router), cung cấp một giao diện từ các ứng dụng khách đến cụm sharded. Ứng dụng không kết nối trực tiếp đến các shard mà kết nối đến Mongos, Mongos sẽ định tuyến truy vấn đến shard phù hợp.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>Balancer (bộ cân bằng) là gì?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+              <p>Balancer là một tiến trình nền chạy trong cụm sharded, có nhiệm vụ di chuyển các chunk giữa các shard để đảm bảo dữ liệu được phân phối đều. Nó hoạt động tự động để ngăn chặn một shard bị quá tải trong khi các shard khác còn trống.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>Điều gì xảy ra khi một shard bị lỗi?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+              <p>Để đảm bảo tính sẵn sàng cao, mỗi shard thường được triển khai dưới dạng một <span class="key-term">replica set</span> (tập hợp bản sao). Nếu một node chính (primary) trong shard bị lỗi, một trong các node phụ (secondary) sẽ tự động được bầu làm node chính mới, đảm bảo cụm vẫn hoạt động mà không bị gián đoạn.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>Làm thế nào để chọn một Shard Key tốt?</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+              <p>Một shard key tốt có ba đặc điểm chính:</p>
+              <ul>
+                <li><strong>Cardinality cao:</strong> Có nhiều giá trị duy nhất, giúp phân phối dữ liệu trên nhiều chunk.</li>
+                <li><strong>Tần suất thay đổi thấp:</strong> Giá trị của shard key không nên thay đổi thường xuyên.</li>
+                <li><strong>Không đơn điệu tăng/giảm:</strong> Tránh các key luôn tăng (như timestamp hoặc `_id` mặc định) vì chúng có thể gây ra "hot shard", tức là tất cả các lượt ghi mới đều đi vào cùng một shard.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1434,956 +1233,767 @@
     </div>
   </div>
 
-<script>
-  // ====== Global State ======
-  let drag = { active: false, node: null, ghost: null, originShard: null };
-  let currentDistribution = 'random';
-  let currentShardKey = 'user_id';
-  let distributionChart, performanceComparisonChart, scalabilityChart;
-  let shardDownSet = new Set(); // fault injection
-  const $ = (q, root = document) => root.querySelector(q);
-  const $$ = (q, root = document) => Array.from(root.querySelectorAll(q));
-  const shardsContainer = $('#shards-container');
+  <script>
+    // ====== State ======
+    let drag = { active: false, node: null, ghost: null, originShard: null };
+    let currentDistribution = 'random';
+    let currentShardKey = 'user_id';
+    let distributionChart, performanceComparisonChart, scalabilityChart;
 
-  // ====== Utils ======
-  function toast(msg, ms = 2200) {
-    let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className='toast'; document.body.appendChild(t); }
-    t.textContent = msg; t.classList.add('show'); setTimeout(()=> t.classList.remove('show'), ms);
-  }
-  function copyText(text) {
-    navigator.clipboard?.writeText(text).then(()=>toast('Đã copy vào clipboard')).catch(()=>toast('Copy không thành công'));
-  }
-  function getShardElements() { return $$('.shards-container .shard'); }
+    // ====== Helpers ======
+    const $ = (q, root = document) => root.querySelector(q);
+    const $$ = (q, root = document) => Array.from(root.querySelectorAll(q));
 
-  // ====== Routing ======
-  function routeUserId(userId) {
-    // Skip shards marked "down"
-    const chunks = $$('.chunk');
-    for (const ch of chunks) {
-      const [min, max] = ch.getAttribute('data-range').split('-').map(n => parseInt(n,10));
-      const sid = ch.closest('.shard')?.id || 'shard1';
-      if (userId >= min && userId <= max && !shardDownSet.has(sid)) return sid;
-    }
-    // fallback by thirds (skip down)
-    const candidates = ['shard1','shard2','shard3'].filter(id => !shardDownSet.has(id));
-    if (userId <= 3000 && candidates.includes('shard1')) return 'shard1';
-    if (userId <= 6000 && candidates.includes('shard2')) return 'shard2';
-    return candidates[0] || 'shard1';
-  }
+    const shardsContainer = $('#shards-container');
 
-  // ====== DOM Builders ======
-  function createShard(id, label) {
-    const el = document.createElement('div');
-    el.className = 'shard';
-    el.id = id;
-    el.innerHTML = `<div class="shard-header"><i class="fas fa-database"></i> ${label} <span class="badge ok" data-status="${id}">OK</span></div>
-        <div class="chunks"></div>`;
-    return el;
-  }
+    function getShardElements() { return $$('.shards-container .shard'); }
+    
+    // DYNAMICALLY route user ID based on current shard count
+    function routeUserId(userId) {
+      const shards = getShardElements();
+      const numShards = shards.length;
+      if (numShards === 0) return null;
 
-  function createChunk(name, start) {
-    const rangeStart = start ?? Math.floor(Math.random() * 9000) + 1;
-    const rangeEnd = rangeStart + 999;
-    const div = document.createElement('div');
-    div.className = 'chunk';
-    div.setAttribute('data-range', `${rangeStart}-${rangeEnd}`);
-    div.innerHTML = `${name} <span>user_${rangeStart}-${rangeEnd}</span>`;
-    bindChunkInteractive(div);
-    return div;
-  }
-
-  // ====== Chunk interactivity (DnD + Popup) ======
-  function bindChunkInteractive(chunkEl) {
-    // Click => open popup
-    chunkEl.addEventListener('click', (e) => {
-      if (drag.active) return; // tránh click khi đang kéo
-      const shardEl = chunkEl.closest('.shard');
-      const idText = chunkEl.textContent.trim().split(' ')[0];
-      const range = chunkEl.getAttribute('data-range');
-      $('#chunk-id-detail').textContent = idText;
-      $('#chunk-range-detail').textContent = range;
-      $('#chunk-shard-detail').textContent = shardEl?.id || 'N/A';
-      $('#chunk-docs-detail').textContent = '≈ ' + (1000 + Math.floor(Math.random() * 200)).toLocaleString();
-      $('#chunk-backdrop').style.display = 'block';
-      $('#chunk-popup').style.display = 'block';
-    });
-
-    // Drag using custom ghost (no duplicate)
-    chunkEl.addEventListener('mousedown', (e) => {
-      if (e.button !== 0) return; // only left click
-      drag.active = true;
-      drag.node = chunkEl;
-      drag.originShard = chunkEl.closest('.shard');
-      chunkEl.style.opacity = '0.6';
-
-      drag.ghost = document.createElement('div');
-      drag.ghost.className = 'chunk-drag-ghost';
-      drag.ghost.textContent = chunkEl.textContent.trim();
-      document.body.appendChild(drag.ghost);
-      moveGhost(e.pageX, e.pageY);
-
-      // mark dropzones
-      getShardElements().forEach((s) => s.classList.add('shard-dropzone'));
-    });
-  }
-  function moveGhost(x, y) {
-    if (!drag.ghost) return;
-    drag.ghost.style.left = x + 'px';
-    drag.ghost.style.top = y + 'px';
-  }
-  document.addEventListener('mousemove', (e) => { if (drag.active) moveGhost(e.pageX, e.pageY); });
-  document.addEventListener('mouseup', (e) => {
-    if (!drag.active) return;
-    const drop = document.elementFromPoint(e.clientX, e.clientY)?.closest('.shard');
-    if (drop && drop.querySelector('.chunks')) {
-      drop.querySelector('.chunks').appendChild(drag.node);
-      const range = drag.node.getAttribute('data-range');
-      const consoleEl = $('#query-console');
-      if (consoleEl) {
-        consoleEl.innerHTML += `<div class="console-line console-success">&gt; Đã di chuyển chunk (${range}) đến ${drop.id}</div>`;
-        consoleEl.scrollTop = consoleEl.scrollHeight;
+      // Try to find chunk including userId
+      const chunks = $$('.chunk');
+      for (const ch of chunks) {
+        const range = ch.getAttribute('data-range');
+        if (range) {
+          const [min, max] = range.split('-').map(n => parseInt(n, 10));
+          if (userId >= min && userId <= max) {
+            return ch.closest('.shard')?.id || shards[0].id;
+          }
+        }
       }
-      updateDistributionDisplay();
-      redrawTopology();
-      renderHeatmap();
+
+      // Fallback: simple distribution if no chunk matches
+      const shardIndex = Math.floor((userId / 10000) * numShards) % numShards;
+      return `shard${shardIndex + 1}`;
     }
-    // cleanup
-    drag.node.style.opacity = '1';
-    drag.active = false; drag.node = null; drag.originShard = null;
-    drag.ghost?.remove(); drag.ghost = null;
-    getShardElements().forEach((s) => s.classList.remove('shard-dropzone', 'highlight'));
-  });
-  document.addEventListener('mousemove', (e) => {
-    if (!drag.active) return;
-    getShardElements().forEach((s) => s.classList.remove('highlight'));
-    const target = document.elementFromPoint(e.clientX, e.clientY)?.closest('.shard');
-    if (target) target.classList.add('highlight');
-  });
 
-  // ====== Data flow lines ======
-  function initDataFlows() {
-    // remove old lines
-    $$('.data-flow, .data-flow-animation').forEach((el) => el.remove());
-    const mongosNodes = ['#mongos1', '#mongos2'].map((id) => $(id));
-    const shardEls = getShardElements();
-    shardEls.forEach((to) => {
-      mongosNodes.forEach((from) => {
-        if (!from || !to) return;
-        createFlow(from, to, false);
-      });
-    });
-    if (mongosNodes[0] && shardEls[0]) createFlow(mongosNodes[0], shardEls[0], true);
-    if (mongosNodes[0] && shardEls[1]) createFlow(mongosNodes[0], shardEls[1], true);
-    if (mongosNodes[1] && shardEls[2]) createFlow(mongosNodes[1], shardEls[2], true);
-  }
-  function createFlow(from, to, animated = false) {
-    const flow = document.createElement('div');
-    flow.className = animated ? 'data-flow-animation' : 'data-flow';
-    $('#interactive-cluster').appendChild(flow);
-    positionFlow(flow, from, to);
-  }
-  function positionFlow(el, from, to) {
-    const fromRect = from.getBoundingClientRect();
-    const toRect = to.getBoundingClientRect();
-    const containerRect = $('#interactive-cluster').getBoundingClientRect();
-    const startX = fromRect.left - containerRect.left + fromRect.width / 2;
-    const startY = fromRect.top - containerRect.top + fromRect.height;
-    const endX = toRect.left - containerRect.left + toRect.width / 2;
-    const endY = toRect.top - containerRect.top;
-    const dx = endX - startX, dy = endY - startY;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    el.style.width = dist + 'px'; el.style.left = startX + 'px'; el.style.top = startY + 'px';
-    const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-    el.style.transform = `rotate(${angle}deg)`; el.style.transformOrigin = '0 0';
-  }
-  window.addEventListener('resize', () => { initDataFlows(); redrawTopology(); });
 
-  // ====== Charts ======
-  function initCharts() {
-    // Overview chart
-    const introCtx = $('#performanceChart').getContext('2d');
-    new Chart(introCtx, {
-      type: 'line',
-      data: {
-        labels: ['1M bản ghi', '10M', '100M', '1B'],
-        datasets: [
-          { label: 'Không Sharding (ms)', data: [100, 500, 5000, 12000], borderColor: 'rgba(255,99,132,1)', tension: 0.15 },
-          { label: 'Có Sharding (ms)', data: [120, 200, 300, 500], borderColor: 'rgba(54,162,235,1)', tension: 0.15 },
-        ],
-      },
-      options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display:true, text:'Thời gian truy vấn (ms)'} } }, plugins: { legend: { position:'bottom' } } },
-    });
-
-    // Distribution chart (Interaction tab)
-    const distCtx = $('#distributionChart').getContext('2d');
-    distributionChart = new Chart(distCtx, {
-      type: 'bar',
-      data: { labels: ['Shard 1', 'Shard 2', 'Shard 3'], datasets: [{ label: 'Số chunk', data: [3, 3, 3] }] },
-      options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: 'Số chunk' } } }, plugins: { legend: { display: false } } },
-    });
-
-    // Performance comparison chart
-    const perfCtx = $('#performanceComparisonChart').getContext('2d');
-    performanceComparisonChart = new Chart(perfCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Latency (ms)', 'Throughput (req/s)', 'CPU (%)'],
-        datasets: [
-          { label: 'Không sharding', data: [180, 400, 85] },
-          { label: 'Có sharding', data: [42, 1250, 65] },
-        ],
-      },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } },
-    });
-
-    // Scalability chart
-    const scCtx = $('#scalabilityChart').getContext('2d');
-    scalabilityChart = new Chart(scCtx, {
-      type: 'line',
-      data: {
-        labels: [1, 2, 3],
-        datasets: [
-          { label: 'Throughput (k req/s)', data: [0.4, 0.8, 1.3] },
-          { label: 'Latency (ms)', data: [180, 90, 42] },
-        ],
-      },
-      options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Số Shard' } } }, plugins: { legend: { position: 'bottom' } } },
-    });
-  }
-  function initChartsSafe(){ try{ initCharts(); } catch(e){ console.warn('Chart init failed, continue', e); toast('Không tải được biểu đồ (CDN). Vẫn chạy mô phỏng.'); } }
-
-  function refreshDistributionChartFromUI() {
-    if (!distributionChart) return;
-    const counts = getShardElements().map((s) => s.querySelectorAll('.chunk').length);
-    distributionChart.data.labels = counts.map((_, i) => 'Shard ' + (i + 1));
-    distributionChart.data.datasets[0].data = counts;
-    distributionChart.update();
-  }
-
-  // ====== Distribution ======
-  function updateDistributionDisplay() {
-    const container = $('#distribution-effect');
-    if (!container) return;
-    container.innerHTML = '';
-    const shards = getShardElements();
-    const counts = shards.map((s) => s.querySelectorAll('.chunk').length);
-    const total = counts.reduce((a, b) => a + b, 0) || 1;
-    shards.forEach((s, i) => {
-      const percent = Math.round((counts[i] / total) * 100);
+    function createShard(id, label) {
       const el = document.createElement('div');
-      el.className = 'distribution-shard';
-      el.textContent = `Shard ${i + 1}: ${percent}%`;
-      if (percent < 25) el.style.background = 'rgba(76,175,80,0.18)';
-      else if (percent > 40) el.style.background = 'rgba(255,152,0,0.18)';
-      container.appendChild(el);
-    });
-    refreshDistributionChartFromUI();
-    initDataFlows();
-    renderHeatmap();
-  }
-  function getDistributionName(dist) {
-    return ({ random: 'Ngẫu nhiên', shardkey: 'Theo Shard Key', loadbalance: 'Cân bằng tải', geo: 'Theo khu vực địa lý' })[dist] || dist;
-  }
-
-  // NEW: Apply distribution immediately on change
-  function redistributeChunks(strategy) {
-    const shards = getShardElements();
-    const all = [];
-    shards.forEach(s => $$('.chunk', s).forEach(c => all.push(c)));
-    shards.forEach(s => s.querySelector('.chunks').innerHTML = '');
-
-    const put = (c, idx) => shards[idx % shards.length].querySelector('.chunks').appendChild(c);
-
-    if (strategy === 'random') {
-      all.sort(() => Math.random() - 0.5).forEach((c, i) => put(c, i));
-    } else if (strategy === 'loadbalance') {
-      all.forEach(c => {
-        const target = shards.reduce((a, b) =>
-          a.querySelectorAll('.chunk').length <= b.querySelectorAll('.chunk').length ? a : b);
-        target.querySelector('.chunks').appendChild(c);
-      });
-    } else if (strategy === 'geo') {
-      all.forEach(c => {
-        const start = parseInt(c.getAttribute('data-range').split('-')[0], 10);
-        const idx = start <= 3000 ? 0 : start <= 6000 ? 1 : 2;
-        put(c, idx);
-      });
-    } else if (strategy === 'shardkey') {
-      all.sort((a, b) => {
-        const A = parseInt(a.getAttribute('data-range').split('-')[0], 10);
-        const B = parseInt(b.getAttribute('data-range').split('-')[0], 10);
-        return A - B;
-      }).forEach((c, i) => put(c, i));
+      el.className = 'shard';
+      el.id = id;
+      el.innerHTML = `
+        <div class="shard-header"><i class="fas fa-database"></i> ${label}</div>
+        <div class="chunks"></div>
+      `;
+      return el;
     }
-    updateDistributionDisplay();
-    redrawTopology();
-    renderHeatmap();
-  }
 
-  // ====== Initial Render ======
-  function renderInitial() {
-    shardsContainer.innerHTML = '';
-    const labels = ['Shard 1 (USA)', 'Shard 2 (Europe)', 'Shard 3 (Asia)'];
-    for (let i = 1; i <= 3; i++) shardsContainer.appendChild(createShard('shard' + i, labels[i - 1]));
-    const preset = [
-      [['Chunk A', 1], ['Chunk D', 3001], ['Chunk G', 6001]],
-      [['Chunk B', 1001], ['Chunk E', 4001], ['Chunk H', 7001]],
-      [['Chunk C', 2001], ['Chunk F', 5001], ['Chunk I', 8001]],
-    ];
-    getShardElements().forEach((s, idx) => {
-      const box = s.querySelector('.chunks');
-      preset[idx].forEach(([name, start]) => box.appendChild(createChunk(name, start)));
-    });
-  }
+    function createChunk(name, start) {
+      const rangeStart = start ?? Math.floor(Math.random() * 9000) + 1;
+      const rangeEnd = rangeStart + 999;
+      const div = document.createElement('div');
+      div.className = 'chunk';
+      div.setAttribute('data-range', `${rangeStart}-${rangeEnd}`);
+      div.innerHTML = `${name} <span>user_${rangeStart}-${rangeEnd}</span>`;
+      bindChunkInteractive(div);
+      return div;
+    }
 
-  // ====== Buttons & Controls ======
-  function wireControls() {
-    // Add data
-    $('#add-data').addEventListener('click', () => {
-      const shards = getShardElements();
-      let target;
-      if (currentDistribution === 'loadbalance') {
-        target = shards.reduce((min, s) => (s.querySelectorAll('.chunk').length < min.querySelectorAll('.chunk').length ? s : min), shards[0]);
-      } else {
-        target = shards[Math.floor(Math.random() * shards.length)];
-      }
-      const chunkNames = 'JKLMNOPQR'.split('').map((c) => 'Chunk ' + c);
-      const name = chunkNames[Math.floor(Math.random() * chunkNames.length)];
-      const newChunk = createChunk(name);
-      newChunk.style.opacity = '0';
-      newChunk.style.transform = 'translateY(10px)';
-      target.querySelector('.chunks').appendChild(newChunk);
-      requestAnimationFrame(() => {
-        newChunk.style.transition = 'all .25s ease';
-        newChunk.style.opacity = '1';
-        newChunk.style.transform = 'translateY(0)';
+    function bindChunkInteractive(chunkEl) {
+      // Click => open popup
+      chunkEl.addEventListener('click', (e) => {
+        if (drag.active) return; // avoid click while dragging
+        const shardEl = chunkEl.closest('.shard');
+        const idText = chunkEl.textContent.trim().split(' ')[0];
+        const range = chunkEl.getAttribute('data-range');
+        $('#chunk-id-detail').textContent = idText;
+        $('#chunk-range-detail').textContent = range;
+        $('#chunk-shard-detail').textContent = shardEl?.id || 'N/A';
+        $('#chunk-docs-detail').textContent = '≈ ' + (1000 + Math.floor(Math.random() * 200)).toLocaleString();
+        $('#chunk-backdrop').style.display = 'block';
+        $('#chunk-popup').style.display = 'block';
       });
-      const shardHeader = target.id;
-      const consoleEl = $('#query-console');
-      if (consoleEl) {
-        consoleEl.innerHTML += `<div class="console-line console-success">&gt; Đã thêm ${name} vào ${shardHeader} (Chiến lược: ${getDistributionName(currentDistribution)})</div>`;
-        consoleEl.scrollTop = consoleEl.scrollHeight;
-      }
-      $('#chunk-count').textContent = parseInt($('#chunk-count').textContent, 10) + 1;
-      updateDistributionDisplay();
-    });
 
-    // Rebalance
-    $('#rebalance').addEventListener('click', () => {
-      const shards = getShardElements();
-      const all = [];
-      shards.forEach((s) => $$('.chunk', s).forEach((c) => all.push(c)));
-      shards.forEach((s) => s.querySelector('.chunks').innerHTML = '');
-      // round-robin
-      let i = 0;
-      all.forEach((c) => {
-        shards[i % shards.length].querySelector('.chunks').appendChild(c);
-        i++;
+      // Drag using custom ghost (no duplicate)
+      chunkEl.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return; // only left click
+        drag.active = true;
+        drag.node = chunkEl;
+        drag.originShard = chunkEl.closest('.shard');
+        chunkEl.style.opacity = '0.6';
+
+        drag.ghost = document.createElement('div');
+        drag.ghost.className = 'chunk-drag-ghost';
+        drag.ghost.textContent = chunkEl.textContent.trim();
+        document.body.appendChild(drag.ghost);
+        moveGhost(e.pageX, e.pageY);
+
+        // mark dropzones
+        getShardElements().forEach((s) => s.classList.add('shard-dropzone'));
       });
-      shards.forEach((s) => { s.style.boxShadow = '0 0 18px rgba(255,215,0,.7)'; setTimeout(() => s.style.boxShadow = '', 900); });
-      const consoleEl = $('#query-console');
-      if (consoleEl) {
-        consoleEl.innerHTML += `<div class="console-line console-success">&gt; Đã cân bằng lại dữ liệu trên các shard</div>`;
-        consoleEl.scrollTop = consoleEl.scrollHeight;
-      }
-      updateDistributionDisplay();
+    }
+
+    function moveGhost(x, y) {
+      if (!drag.ghost) return;
+      drag.ghost.style.left = x + 'px';
+      drag.ghost.style.top = y + 'px';
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      if (drag.active) moveGhost(e.pageX, e.pageY);
     });
-  }
 
-  // Visual highlight for a routed shard
-  function highlightShard(shardId) {
-    const el = document.getElementById(shardId);
-    if (!el) return;
-    el.style.boxShadow = '0 0 18px rgba(0,188,212,.9)';
-    setTimeout(() => (el.style.boxShadow = ''), 900);
-  }
+    document.addEventListener('mouseup', (e) => {
+      if (!drag.active) return;
+      const drop = document.elementFromPoint(e.clientX, e.clientY)?.closest('.shard');
+      if (drop && drop.querySelector('.chunks')) {
+        drop.querySelector('.chunks').appendChild(drag.node);
+        const range = drag.node.getAttribute('data-range');
+        const consoleEl = $('#query-console');
+        if (consoleEl) {
+          consoleEl.innerHTML += `<div class="console-line console-success">&gt; Moved chunk (${range}) to ${drop.id}</div>`;
+          consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+        updateDistributionDisplay();
+      }
+      // cleanup
+      drag.node.style.opacity = '1';
+      drag.active = false;
+      drag.node = null;
+      drag.originShard = null;
+      drag.ghost?.remove();
+      drag.ghost = null;
+      getShardElements().forEach((s) => s.classList.remove('shard-dropzone', 'highlight'));
+    });
 
-  // Show routed result (Interaction tab visual)
-  function showRouteResult(shardId, payloadText = '') {
-    const visual = $('#query-visual');
-    if (!visual) return;
-    visual.innerHTML = `
-      <p><strong>Routed to:</strong> ${shardId}</p>
-      ${payloadText ? `<p><strong>Payload:</strong> <code>${payloadText}</code></p>` : ''}
+    // highlight while moving via mouseover
+    document.addEventListener('mousemove', (e) => {
+      if (!drag.active) return;
+      getShardElements().forEach((s) => s.classList.remove('highlight'));
+      const target = document.elementFromPoint(e.clientX, e.clientY)?.closest('.shard');
+      if (target) target.classList.add('highlight');
+    });
+
+    // ====== NEW Data flow lines (Bus architecture) ======
+    function initDataFlows() {
+      const cluster = $('#interactive-cluster');
+      // Remove old lines and bus
+      $$('.data-flow, .data-flow-animation, .network-bus').forEach(el => el.remove());
+
+      // Create bus
+      const bus = document.createElement('div');
+      bus.className = 'data-flow network-bus';
+      cluster.appendChild(bus);
+
+      const mongosNodes = $$('.mongos');
+      const shardNodes = getShardElements();
+      if (mongosNodes.length === 0 || shardNodes.length === 0) return;
+
+      const containerRect = cluster.getBoundingClientRect();
+
+      // Position bus
+      const mongosBottom = Math.max(...mongosNodes.map(m => m.getBoundingClientRect().bottom));
+      const shardsTop = Math.min(...shardNodes.map(s => s.getBoundingClientRect().top));
+      const busTop = mongosBottom + (shardsTop - mongosBottom) * 0.5 - containerRect.top;
+      const busLeft = shardNodes[0].getBoundingClientRect().left - containerRect.left + (shardNodes[0].getBoundingClientRect().width / 2);
+      const lastShardRect = shardNodes[shardNodes.length - 1].getBoundingClientRect();
+      const busRight = lastShardRect.left + lastShardRect.width / 2 - containerRect.left;
+      
+      bus.style.top = `${busTop}px`;
+      bus.style.left = `${busLeft}px`;
+      bus.style.width = `${busRight - busLeft}px`;
+
+      // Create connectors
+      const createConnector = (nodeRect, toBusTop) => {
+        const line = document.createElement('div');
+        line.className = 'data-flow';
+        const nodeCenterX = nodeRect.left + nodeRect.width / 2 - containerRect.left;
+        const startY = (toBusTop ? nodeRect.bottom : nodeRect.top) - containerRect.top;
+        const endY = busTop;
+
+        line.style.left = `${nodeCenterX}px`;
+        line.style.top = `${Math.min(startY, endY)}px`;
+        line.style.height = `${Math.abs(endY - startY)}px`;
+        line.style.width = '4px'; // Vertical line
+        cluster.appendChild(line);
+      };
+
+      mongosNodes.forEach(node => createConnector(node.getBoundingClientRect(), true));
+      shardNodes.forEach(node => createConnector(node.getBoundingClientRect(), false));
+    }
+
+    function animateQueryFlow(fromSelector, toShardId) {
+        const fromNode = $(fromSelector);
+        const toNode = $(`#${toShardId}`);
+        const cluster = $('#interactive-cluster');
+        const bus = $('.network-bus');
+        if (!fromNode || !toNode || !bus) return;
+
+        const containerRect = cluster.getBoundingClientRect();
+        const fromRect = fromNode.getBoundingClientRect();
+        const toRect = toNode.getBoundingClientRect();
+        const busRect = bus.getBoundingClientRect();
+
+        const fromX = fromRect.left + fromRect.width / 2 - containerRect.left;
+        const toX = toRect.left + toRect.width / 2 - containerRect.left;
+
+        // Create 3 animated parts: from->bus, bus segment, bus->to
+        const createAnimatedLine = (styles, duration, delay) => {
+            const line = document.createElement('div');
+            line.className = 'data-flow-animation';
+            Object.assign(line.style, styles);
+            line.style.animation = `flow ${duration}s linear ${delay}s`;
+            cluster.appendChild(line);
+            setTimeout(() => line.remove(), (duration + delay) * 1000 + 100);
+        };
+
+        // 1. From Mongos to Bus
+        createAnimatedLine({
+            left: `${fromX - 2}px`,
+            top: `${fromRect.bottom - containerRect.top}px`,
+            width: '4px',
+            height: `${busRect.top - fromRect.bottom}px`,
+            transformOrigin: 'top'
+        }, 0.4, 0);
+
+        // 2. Across Bus
+        setTimeout(() => {
+          const horizLine = document.createElement('div');
+          horizLine.className = 'data-flow-animation';
+          Object.assign(horizLine.style, {
+            left: `${Math.min(fromX, toX)}px`,
+            top: `${busRect.top - containerRect.top}px`,
+            width: `${Math.abs(fromX - toX)}px`,
+            height: '4px',
+            transformOrigin: fromX < toX ? 'left' : 'right',
+            animation: `flow-horiz 0.5s linear`
+          });
+          cluster.appendChild(horizLine);
+          setTimeout(() => horizLine.remove(), 600);
+        }, 300);
+        
+        // 3. From Bus to Shard
+        setTimeout(() => {
+           createAnimatedLine({
+            left: `${toX - 2}px`,
+            top: `${busRect.bottom - containerRect.top}px`,
+            width: '4px',
+            height: `${toRect.top - busRect.bottom}px`,
+            transformOrigin: 'top'
+          }, 0.4, 0);
+        }, 700);
+    }
+
+    // Add specific keyframes for horizontal animation
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = `
+      @keyframes flow-horiz {
+        from { transform: scaleX(0); } to { transform: scaleX(1); }
+      }
     `;
-  }
+    document.head.appendChild(styleSheet);
 
-  // ====== Simulate Query (Controls) ======
-  $('#simulate-query').addEventListener('click', () => {
-    // random user_id 1..9000
-    const userId = Math.floor(Math.random() * 9000) + 1;
-    const shardId = routeUserId(userId);
-    const consoleEl = $('#query-console');
-    if (consoleEl) {
-      consoleEl.innerHTML += `<div class="console-line">&gt; Simulate: { "user_id": ${userId} }</div>`;
-      consoleEl.innerHTML += `<div class="console-line console-success">→ Routed to <b>${shardId}</b></div>`;
-      consoleEl.scrollTop = consoleEl.scrollHeight;
-    }
-    // Auto switch to Interaction tab so người dùng thấy kết quả
-    document.querySelector('.tab[data-tab="interaction"]').click();
-    highlightShard(shardId);
-    showRouteResult(shardId, `{ "user_id": ${userId} }`);
-    showPlanFor({ user_id: userId }, shardId);
-  });
 
-  // Mongos click -> also simulate route
-  ['#mongos1', '#mongos2'].forEach((sel, idx) => {
-    const m = $(sel);
-    if (!m) return;
-    m.addEventListener('click', () => {
-      const userId = Math.floor(Math.random() * 9000) + 1;
-      const shardId = routeUserId(userId);
-      const consoleEl = $('#query-console');
-      if (consoleEl) {
-        consoleEl.innerHTML += `<div class="console-line">&gt; Mongos ${idx + 1}: route { "user_id": ${userId} }</div>`;
-        consoleEl.innerHTML += `<div class="console-line console-success">→ Routed to <b>${shardId}</b></div>`;
-        consoleEl.scrollTop = consoleEl.scrollHeight;
-      }
-      highlightShard(shardId);
-      showRouteResult(shardId, `{ "user_id": ${userId} }`);
-      showPlanFor({ user_id: userId }, shardId);
-    });
-  });
+    window.addEventListener('resize', initDataFlows);
 
-  // ====== Tabs & FAQ ======
-  function wireTabsAndFaq() {
-    $$('.tab').forEach((t) => {
-      t.addEventListener('click', () => {
-        $$('.tab').forEach((x) => x.classList.remove('active'));
-        t.classList.add('active');
-        const target = t.getAttribute('data-tab');
-        $$('.tab-content').forEach((c) => c.classList.remove('active'));
-        $(`#${target}-tab`).classList.add('active');
-        if (target === 'visualization') requestAnimationFrame(()=>{ initDataFlows(); redrawTopology(); });
+    // ====== Charts ======
+    function initCharts() {
+      // Overview chart
+      const introCtx = $('#performanceChart').getContext('2d');
+      new Chart(introCtx, {
+        type: 'line',
+        data: {
+          labels: ['1M bản ghi', '10M', '100M', '1B'],
+          datasets: [
+            { label: 'Không Sharding (ms)', data: [100, 500, 5000, 12000], borderColor: 'rgba(255,99,132,1)', tension: 0.15 },
+            { label: 'Có Sharding (ms)', data: [120, 200, 300, 500], borderColor: 'rgba(54,162,235,1)', tension: 0.15 },
+          ],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: { y: { title: { display: true, text: 'Thời gian truy vấn (ms)' } } },
+          plugins: { legend: { position: 'bottom' } },
+        },
       });
-    });
 
-    $$('.faq-item').forEach((item) => {
-      item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active'));
-    });
-  }
+      // Distribution chart (Interaction tab)
+      const distCtx = $('#distributionChart').getContext('2d');
+      distributionChart = new Chart(distCtx, {
+        type: 'bar',
+        data: { labels: ['Shard 1', 'Shard 2', 'Shard 3'], datasets: [{ label: 'Số chunk', data: [3, 3, 3] }] },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: 'Số chunk' } } }, plugins: { legend: { display: false } } },
+      });
 
-  // ====== Chunk detail popup close ======
-  $('#close-chunk-popup').addEventListener('click', () => {
-    $('#chunk-popup').style.display = 'none';
-    $('#chunk-backdrop').style.display = 'none';
-  });
-  $('#chunk-backdrop').addEventListener('click', () => {
-    $('#chunk-popup').style.display = 'none';
-    $('#chunk-backdrop').style.display = 'none';
-  });
+      // Performance comparison chart
+      const perfCtx = $('#performanceComparisonChart').getContext('2d');
+      performanceComparisonChart = new Chart(perfCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Latency (ms)', 'Throughput (req/s)', 'CPU (%)'],
+          datasets: [
+            { label: 'Không sharding', data: [180, 400, 85] },
+            { label: 'Có sharding', data: [42, 1250, 65] },
+          ],
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } },
+      });
 
-  // ====== Config popup ======
-  const configPopup = $('#config-popup');
-  function openConfigPopupNear(el) {
-    configPopup.style.display = 'block';
-    const r = el.getBoundingClientRect();
-    const parent = $('#interactive-cluster').getBoundingClientRect();
-    configPopup.style.left = (r.left - parent.left + r.width + 12) + 'px';
-    configPopup.style.top = (r.top - parent.top) + 'px';
-  }
-  ['#config1', '#config2', '#config3'].forEach((id) => {
-    const el = $(id);
-    if (!el) return;
-    el.addEventListener('click', (e) => { e.stopPropagation(); openConfigPopupNear(el); });
-  });
-  $('#close-config-popup').addEventListener('click', () => (configPopup.style.display = 'none'));
-  document.addEventListener('click', (e) => {
-    if (!configPopup.contains(e.target) && !e.target.closest('.config-server')) configPopup.style.display = 'none';
-  });
-
-  // ====== Shards/Chunks slider handlers ======
-  function regenerateShards(n) {
-    const existingChunks = [];
-    getShardElements().forEach((s) => $$('.chunk', s).forEach((c) => existingChunks.push(c)));
-    shardsContainer.innerHTML = '';
-    for (let i = 1; i <= n; i++) shardsContainer.appendChild(createShard('shard' + i, 'Shard ' + i));
-    let i = 0;
-    existingChunks.forEach((c) => {
-      const target = getShardElements()[i % n].querySelector('.chunks');
-      target.appendChild(c); i++;
-    });
-    initDataFlows(); updateDistributionDisplay(); redrawTopology(); renderHeatmap();
-  }
-  function ensureChunkCount(targetCount) {
-    const shards = getShardElements();
-    const allChunks = $$('.chunk');
-    let current = allChunks.length;
-    while (current < targetCount) {
-      let target;
-      if (currentDistribution === 'loadbalance') {
-        target = shards.reduce((min, s) => (s.querySelectorAll('.chunk').length < min.querySelectorAll('.chunk').length ? s : min), shards[0]);
-      } else target = shards[Math.floor(Math.random() * shards.length)];
-      const newChunk = createChunk('Chunk ' + String.fromCharCode(65 + (current % 26)));
-      target.querySelector('.chunks').appendChild(newChunk);
-      current++;
+      // Scalability chart
+      const scCtx = $('#scalabilityChart').getContext('2d');
+      scalabilityChart = new Chart(scCtx, {
+        type: 'line',
+        data: {
+          labels: [1, 2, 3],
+          datasets: [
+            { label: 'Throughput (k req/s)', data: [0.4, 0.8, 1.3] },
+            { label: 'Latency (ms)', data: [180, 90, 42] },
+          ],
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Số Shard' } } }, plugins: { legend: { position: 'bottom' } } },
+      });
     }
-    while (current > targetCount) { const last = $$('.chunk').pop(); if (!last) break; last.remove(); current--; }
-    updateDistributionDisplay(); redrawTopology(); renderHeatmap();
-  }
 
-  $('#shards').addEventListener('input', (e) => { $('#shard-count').textContent = e.target.value; });
-  $('#shards').addEventListener('change', (e) => { regenerateShards(parseInt(e.target.value, 10)); refreshDistributionChartFromUI(); saveState(); });
-
-  $('#chunks').addEventListener('input', (e) => { $('#chunk-count').textContent = e.target.value; });
-  $('#chunks').addEventListener('change', (e) => { ensureChunkCount(parseInt(e.target.value, 10)); saveState(); });
-
-  $('#data-distribution').addEventListener('change', (e) => {
-    currentDistribution = e.target.value;
-    const consoleEl = $('#query-console');
-    if (consoleEl) {
-      consoleEl.innerHTML += `<div class="console-line console-comment"># Đã chuyển chiến lược phân phối: ${getDistributionName(currentDistribution)}</div>`;
-      consoleEl.scrollTop = consoleEl.scrollHeight;
-    }
-    redistributeChunks(currentDistribution); saveState();
-  });
-
-  // ====== Interaction tab: shard key options ======
-  $$('.key-option').forEach((opt) => {
-    opt.addEventListener('click', () => {
-      $$('.key-option').forEach((x) => x.classList.remove('active'));
-      opt.classList.add('active');
-      currentShardKey = opt.dataset.key || 'user_id';
-      updateKeyDistributionChart();
-      renderHeatmap();
-    });
-  });
-  function updateKeyDistributionChart(){
-    const labels = getShardElements().map((_, i) => 'Shard ' + (i + 1));
-    const n = labels.length;
-    let data = new Array(n).fill(0);
-    if (currentShardKey === 'user_id') {
-      data = data.map((_, i) => 5 + (i % 2));
-      $('#key-explanation').innerHTML = `<p><strong>Giải thích:</strong> "user_id" phân phối khá đều, dễ chia range.</p>`;
-    } else if (currentShardKey === 'timestamp') {
-      data = data.map((_, i) => (i === 0 || i === n - 1 ? 8 : 4));
-      $('#key-explanation').innerHTML = `<p><strong>Giải thích:</strong> "timestamp" có nguy cơ lệch tải nếu truy cập gần-thời-gian-thực (hot shard).</p>`;
-    } else if (currentShardKey === 'location') {
-      data = data.map((_, i) => 3 + Math.floor(Math.random() * 6));
-      $('#key-explanation').innerHTML = `<p><strong>Giải thích:</strong> "location" giúp định tuyến theo khu vực, giảm độ trễ địa lý.</p>`;
-    } else {
-      data = data.map((_, i) => 4 + Math.floor(Math.random() * 5));
-      $('#key-explanation').innerHTML = `<p><strong>Giải thích:</strong> Chìa khóa tùy chọn có đặc tính phân phối khác nhau, cần benchmark thực tế.</p>`;
-    }
-    if (distributionChart) {
-      distributionChart.data.labels = labels;
-      distributionChart.data.datasets[0].data = data;
+    function refreshDistributionChartFromUI() {
+      if (!distributionChart) return;
+      const counts = getShardElements().map((s) => s.querySelectorAll('.chunk').length);
+      distributionChart.data.labels = counts.map((_, i) => 'Shard ' + (i + 1));
+      distributionChart.data.datasets[0].data = counts;
       distributionChart.update();
     }
-  }
 
-  // ====== Interaction tab: Run query from input ======
-  $('#run-query').addEventListener('click', () => {
-    const txt = $('#interactive-query').value.trim();
-    const consoleEl = $('#query-console');
-    if (consoleEl) consoleEl.innerHTML += `<div class="console-line console-command">&gt; ${txt}</div>`;
-    if (!txt) return;
-
-    let obj;
-    try { obj = JSON.parse(txt); }
-    catch (e) { if (consoleEl) { consoleEl.innerHTML += `<div class="console-line console-error">! JSON không hợp lệ</div>`; consoleEl.scrollTop = consoleEl.scrollHeight; } return; }
-
-    let shardId = 'shard1';
-    if (typeof obj.user_id === 'number') shardId = routeUserId(obj.user_id);
-    else if (typeof obj.user_id === 'string' && /^\d+$/.test(obj.user_id)) shardId = routeUserId(parseInt(obj.user_id, 10));
-    else {
-      // fallback: hash first key value
-      const firstKey = Object.keys(obj)[0];
-      const val = obj[firstKey];
-      const n = getShardElements().length || 3;
-      const hash = (String(val).split('').reduce((a, c) => a + c.charCodeAt(0), 0)) % n;
-      shardId = `shard${hash + 1}`;
-      if (shardDownSet.has(shardId)) shardId = 'shard1'; // simple skip-down
+    // ====== Distribution display ======
+    function updateDistributionDisplay() {
+      const container = $('#distribution-effect');
+      container.innerHTML = '';
+      const shards = getShardElements();
+      const counts = shards.map((s) => s.querySelectorAll('.chunk').length);
+      const total = counts.reduce((a, b) => a + b, 0) || 1;
+      shards.forEach((s, i) => {
+        const percent = Math.round((counts[i] / total) * 100);
+        const el = document.createElement('div');
+        el.className = 'distribution-shard';
+        el.textContent = `Shard ${i + 1}: ${percent}%`;
+        if (percent < 25 && total > counts.length) el.style.background = 'rgba(76,175,80,0.18)';
+        else if (percent > 45 && total > counts.length) el.style.background = 'rgba(255,152,0,0.18)';
+        container.appendChild(el);
+      });
+      refreshDistributionChartFromUI();
+      initDataFlows();
     }
-    if (consoleEl) {
+
+    function getDistributionName(dist) {
+      return ({ random: 'Ngẫu nhiên', shardkey: 'Theo Shard Key', loadbalance: 'Cân bằng tải', geo: 'Theo khu vực địa lý' })[dist] || dist;
+    }
+
+    // ====== Render initial shards & chunks ======
+    function renderInitial() {
+      shardsContainer.innerHTML = '';
+      const labels = ['Shard 1 (USA)', 'Shard 2 (Europe)', 'Shard 3 (Asia)'];
+      for (let i = 1; i <= 3; i++) {
+        const s = createShard('shard' + i, labels[i - 1]);
+        shardsContainer.appendChild(s);
+      }
+      // initial chunks
+      const preset = [
+        [['Chunk A', 1], ['Chunk D', 3001], ['Chunk G', 6001]],
+        [['Chunk B', 1001], ['Chunk E', 4001], ['Chunk H', 7001]],
+        [['Chunk C', 2001], ['Chunk F', 5001], ['Chunk I', 8001]],
+      ];
+      getShardElements().forEach((s, idx) => {
+        const box = s.querySelector('.chunks');
+        preset[idx].forEach(([name, start]) => box.appendChild(createChunk(name, start)));
+      });
+    }
+
+    // ====== Buttons & Controls ======
+    function wireControls() {
+      // Add data
+      $('#add-data').addEventListener('click', () => {
+        const shards = getShardElements();
+        if (shards.length === 0) return;
+        let target;
+        
+        // Select target shard based on strategy
+        if (currentDistribution === 'loadbalance') {
+          target = shards.reduce((min, s) => (s.querySelectorAll('.chunk').length < min.querySelectorAll('.chunk').length ? s : min), shards[0]);
+        } else if (currentDistribution === 'geo') {
+            const geoTargets = ['USA', 'Europe', 'Asia'];
+            const targetGeo = geoTargets[Math.floor(Math.random() * geoTargets.length)];
+            target = shards.find(s => s.textContent.includes(targetGeo)) || shards[Math.floor(Math.random() * shards.length)];
+        } else { // random or shardkey (simplified to random for this simulation)
+          target = shards[Math.floor(Math.random() * shards.length)];
+        }
+
+        const chunkNames = 'JKLMNOPQRSTUVWXYZ'.split('').map((c) => 'Chunk ' + c);
+        const name = chunkNames[Math.floor(Math.random() * chunkNames.length)];
+        const newChunk = createChunk(name);
+        newChunk.style.opacity = '0';
+        newChunk.style.transform = 'translateY(10px)';
+
+        // Highlight target shard before adding
+        target.style.transition = 'box-shadow 0.2s ease-out';
+        target.style.boxShadow = '0 0 18px var(--success)';
+        setTimeout(() => target.style.boxShadow = '', 500);
+
+        target.querySelector('.chunks').appendChild(newChunk);
+        requestAnimationFrame(() => {
+          newChunk.style.transition = 'all .25s ease';
+          newChunk.style.opacity = '1';
+          newChunk.style.transform = 'translateY(0)';
+        });
+
+        const consoleEl = $('#query-console');
+        if (consoleEl) {
+          consoleEl.innerHTML += `<div class="console-line console-success">&gt; Added ${name} to ${target.id} (Strategy: ${getDistributionName(currentDistribution)})</div>`;
+          consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+        $('#chunk-count').textContent = parseInt($('#chunk-count').textContent, 10) + 1;
+        updateDistributionDisplay();
+      });
+
+      // Rebalance
+      $('#rebalance').addEventListener('click', () => {
+        const shards = getShardElements();
+        if (shards.length < 2) return;
+        const all = [];
+        shards.forEach((s) => $$('.chunk', s).forEach((c) => all.push(c)));
+        shards.forEach((s) => s.querySelector('.chunks').innerHTML = '');
+        // round-robin
+        let i = 0;
+        all.forEach((c) => {
+          shards[i % shards.length].querySelector('.chunks').appendChild(c);
+          i++;
+        });
+        shards.forEach((s) => { s.style.boxShadow = '0 0 18px rgba(255,215,0,.7)'; setTimeout(() => s.style.boxShadow = '', 900); });
+        const consoleEl = $('#query-console');
+        if (consoleEl) {
+          consoleEl.innerHTML += `<div class="console-line console-success">&gt; Data rebalanced across shards</div>`;
+          consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+        updateDistributionDisplay();
+      });
+    }
+
+    // Visual highlight for a routed shard
+    function highlightShard(shardId) {
+      const el = document.getElementById(shardId);
+      if (!el) return;
+      el.style.boxShadow = '0 0 18px rgba(0,188,212,.9)';
+      setTimeout(() => (el.style.boxShadow = ''), 1200);
+    }
+
+    // Show routed result in visual panel (if exists)
+    function showRouteResult(shardId, payloadText = '') {
+      const visual = $('#query-visual');
+      if (!visual) return;
+      visual.innerHTML = `
+        <p style="margin-top: 20px;"><strong>Đã định tuyến tới:</strong> <span style="color: var(--primary); font-weight: bold;">${shardId}</span></p>
+        ${payloadText ? `<p><strong>Dữ liệu truy vấn:</strong> <code>${payloadText}</code></p>` : ''}
+      `;
+    }
+
+    function simulateAndAnimateQuery(sourceMongosSelector) {
+        const userId = Math.floor(Math.random() * 9999) + 1;
+        const shardId = routeUserId(userId);
+        if (!shardId) return;
+
+        const consoleEl = $('#query-console');
+        const sourceName = $(sourceMongosSelector).textContent.trim();
+        if (consoleEl) {
+            consoleEl.innerHTML += `<div class="console-line">&gt; ${sourceName}: { "user_id": ${userId} }</div>`;
+            consoleEl.innerHTML += `<div class="console-line console-success">→ Routed to <b>${shardId}</b></div>`;
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+        highlightShard(shardId);
+        animateQueryFlow(sourceMongosSelector, shardId);
+        showRouteResult(shardId, `{ "user_id": ${userId} }`);
+    }
+
+    // Bind simulate-query button
+    $('#simulate-query').addEventListener('click', () => simulateAndAnimateQuery('#mongos1'));
+
+    // Bind Mongos click
+    $$('.mongos').forEach(m => m.addEventListener('click', () => simulateAndAnimateQuery(`#${m.id}`)));
+
+
+    // ====== Tabs & FAQ ======
+    function wireTabsAndFaq() {
+      $$('.tab').forEach((t) => {
+        t.addEventListener('click', () => {
+          $$('.tab').forEach((x) => x.classList.remove('active'));
+          t.classList.add('active');
+          const target = t.getAttribute('data-tab');
+          $$('.tab-content').forEach((c) => c.classList.remove('active'));
+          $(`#${target}-tab`).classList.add('active');
+          // redraw flows when switching back to visualization
+          if (target === 'visualization') requestAnimationFrame(initDataFlows);
+        });
+      });
+
+      $$('.faq-item').forEach((item) => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+    }
+
+    // ====== Chunk detail popup close ======
+    $('#close-chunk-popup').addEventListener('click', () => {
+      $('#chunk-popup').style.display = 'none';
+      $('#chunk-backdrop').style.display = 'none';
+    });
+    $('#chunk-backdrop').addEventListener('click', () => {
+      $('#chunk-popup').style.display = 'none';
+      $('#chunk-backdrop').style.display = 'none';
+    });
+
+    // ====== Config popup ======
+    const configPopup = $('#config-popup');
+    function openConfigPopupNear(el) {
+      configPopup.style.display = 'block';
+      const r = el.getBoundingClientRect();
+      const parent = $('#interactive-cluster').getBoundingClientRect();
+      configPopup.style.left = (r.left - parent.left + r.width + 12) + 'px';
+      configPopup.style.top = (r.top - parent.top) + 'px';
+    }
+    $$('.config-server').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openConfigPopupNear(el);
+      });
+    });
+    $('#close-config-popup').addEventListener('click', () => (configPopup.style.display = 'none'));
+    document.addEventListener('click', (e) => {
+      if (!configPopup.contains(e.target) && !e.target.closest('.config-server')) {
+        configPopup.style.display = 'none';
+      }
+    });
+
+    // ====== Shards/Chunks slider handlers ======
+    function regenerateShards(n) {
+      // gather all chunks
+      const existingChunks = [];
+      getShardElements().forEach((s) => $$('.chunk', s).forEach((c) => existingChunks.push(c)));
+      // clear and rebuild shards
+      shardsContainer.innerHTML = '';
+      for (let i = 1; i <= n; i++) {
+        const s = createShard('shard' + i, 'Shard ' + i);
+        shardsContainer.appendChild(s);
+      }
+      // reattach existing chunks round-robin
+      let i = 0;
+      existingChunks.forEach((c) => {
+        const target = getShardElements()[i % n].querySelector('.chunks');
+        target.appendChild(c);
+        i++;
+      });
+      initDataFlows();
+      updateDistributionDisplay();
+    }
+
+    function ensureChunkCount(targetCount) {
+      const shards = getShardElements();
+      if (shards.length === 0) return;
+      const allChunks = $$('.chunk');
+      let current = allChunks.length;
+
+      while (current < targetCount) {
+        const target = shards[Math.floor(Math.random() * shards.length)];
+        const newChunk = createChunk('Chunk ' + String.fromCharCode(65 + (current % 26)));
+        target.querySelector('.chunks').appendChild(newChunk);
+        current++;
+      }
+
+      while (current > targetCount) {
+        const last = $$('.chunk').pop();
+        if (!last) break;
+        last.remove();
+        current--;
+      }
+      updateDistributionDisplay();
+    }
+
+    $('#shards').addEventListener('input', (e) => $('#shard-count').textContent = e.target.value);
+    $('#shards').addEventListener('change', (e) => {
+      const n = parseInt(e.target.value, 10);
+      regenerateShards(n);
+      refreshDistributionChartFromUI();
+    });
+
+    $('#chunks').addEventListener('input', (e) => $('#chunk-count').textContent = e.target.value);
+    $('#chunks').addEventListener('change', (e) => ensureChunkCount(parseInt(e.target.value, 10)));
+
+    const distributionExplanations = {
+        random: '<h3><i class="fas fa-random"></i> Ngẫu nhiên</h3><p>Dữ liệu mới được thêm vào một shard ngẫu nhiên. Đơn giản nhưng có thể không tối ưu cho việc đọc theo phạm vi (range scan).</p>',
+        shardkey: '<h3><i class="fas fa-key"></i> Theo Shard Key</h3><p>Dữ liệu được phân phối dựa trên giá trị của shard key. Hiệu quả cho truy vấn theo phạm vi nếu key được chọn tốt.</p>',
+        loadbalance: '<h3><i class="fas fa-balance-scale"></i> Cân bằng tải</h3><p>Dữ liệu mới được thêm vào shard có ít chunk nhất, giúp giữ cho các shard cân bằng về số lượng chunk.</p>',
+        geo: '<h3><i class="fas fa-globe-americas"></i> Theo khu vực địa lý</h3><p>Dữ liệu được phân phối đến các shard đặt tại các vị trí địa lý cụ thể, giúp giảm độ trễ cho người dùng khu vực đó.</p>'
+    };
+    $('#data-distribution').addEventListener('change', (e) => {
+      currentDistribution = e.target.value;
+      const explanationBox = $('#distribution-explanation');
+      explanationBox.innerHTML = distributionExplanations[currentDistribution] || '';
+      explanationBox.style.display = 'block';
+
+      const consoleEl = $('#query-console');
+      if (consoleEl) {
+        consoleEl.innerHTML += `<div class="console-line console-comment"># Changed distribution strategy to: ${getDistributionName(currentDistribution)}</div>`;
+        consoleEl.scrollTop = consoleEl.scrollHeight;
+      }
+    });
+
+
+    // ====== Interaction tab: shard key options ======
+    $$('.key-option').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        $$('.key-option').forEach((x) => x.classList.remove('active'));
+        opt.classList.add('active');
+        currentShardKey = opt.dataset.key || 'user_id';
+
+        const labels = ['Shard 1', 'Shard 2', 'Shard 3'];
+        let data = [5, 5, 5];
+        let explanation = '';
+
+        if (currentShardKey === 'user_id') {
+          data = [6, 5, 6];
+          explanation = `<p><strong>Giải thích:</strong> "user_id" với cardinality cao thường phân phối đều, tốt cho cả đọc và ghi.</p>`;
+        } else if (currentShardKey === 'timestamp') {
+          data = [2, 3, 12]; // Hot shard effect
+          explanation = `<p><strong>Giải thích:</strong> "timestamp" có nguy cơ gây ra "hot shard" vì tất cả lượt ghi mới đều đi vào shard cuối cùng.</p>`;
+        } else if (currentShardKey === 'location') {
+          data = [8, 2, 7]; // Uneven but logical
+          explanation = `<p><strong>Giải thích:</strong> "location" giúp định tuyến theo khu vực, nhưng có thể không đều nếu lưu lượng không cân bằng giữa các khu vực.</p>`;
+        } else {
+          data = [4, 8, 5];
+          explanation = `<p><strong>Giải thích:</strong> Shard key dựa trên "product" có thể gây ra hot shard nếu một sản phẩm đột nhiên trở nên phổ biến.</p>`;
+        }
+
+        $('#key-explanation').innerHTML = explanation;
+        if (distributionChart) {
+          distributionChart.data.labels = labels;
+          distributionChart.data.datasets[0].data = data;
+          distributionChart.update();
+        }
+      });
+    });
+
+    // ====== Interaction tab: Run query from input ======
+    $('#run-query').addEventListener('click', () => {
+      const txt = $('#interactive-query').value.trim();
+      const consoleEl = $('#query-console');
+      consoleEl.innerHTML += `<div class="console-line console-command">&gt; ${txt}</div>`;
+      if (!txt) return;
+
+      let obj, shardId;
+      try {
+        obj = JSON.parse(txt);
+      } catch (e) {
+        consoleEl.innerHTML += `<div class="console-line console-error">! Invalid JSON</div>`;
+        consoleEl.scrollTop = consoleEl.scrollHeight;
+        return;
+      }
+
+      if (typeof obj.user_id === 'number') {
+        shardId = routeUserId(obj.user_id);
+      } else {
+        const firstKey = Object.keys(obj)[0];
+        const val = obj[firstKey];
+        const n = getShardElements().length || 3;
+        const hash = String(val).split('').reduce((a, c) => a + c.charCodeAt(0), 0) % n;
+        shardId = `shard${hash + 1}`;
+      }
+
+      if (!shardId) {
+        consoleEl.innerHTML += `<div class="console-line console-error">! Could not route query. No shards available.</div>`;
+        consoleEl.scrollTop = consoleEl.scrollHeight;
+        return;
+      }
+
       consoleEl.innerHTML += `<div class="console-line console-success">→ Routed to <b>${shardId}</b></div>`;
       consoleEl.scrollTop = consoleEl.scrollHeight;
-    }
-    highlightShard(shardId);
-    showRouteResult(shardId, txt);
-    showPlanFor(obj, shardId);
-  });
+      highlightShard(shardId);
+      animateQueryFlow('#mongos2', shardId); // Assume query from second mongos
+      showRouteResult(shardId, txt);
+    });
 
-  // ====== Performance tab: load slider & add shard chart ======
-  const loadMap = { 1: 'Thấp', 2: 'Trung bình', 3: 'Cao' };
-  $('#load-level').addEventListener('input', (e) => {
-    const v = parseInt(e.target.value, 10);
-    $('#load-value').textContent = loadMap[v];
-    const baseThroughput = v === 1 ? 900 : v === 2 ? 1250 : 1800;
-    const baseLatency = v === 1 ? 28 : v === 2 ? 42 : 78;
-    const baseCPU = v === 1 ? 45 : v === 2 ? 65 : 88;
+    // ====== Interaction tab: Design Architecture (FIXED) ======
+    $('#design-architecture').addEventListener('click', () => {
+        const numShards = parseInt($('#custom-shards').value, 10);
+        const dataSize = $('#custom-data').value;
+        const resultEl = $('#architecture-result');
 
-    $('#throughput-value').textContent = baseThroughput.toLocaleString();
-    $('#latency-value').textContent = baseLatency + 'ms';
-    $('#cpu-value').textContent = baseCPU + '%';
+        let recommendation = `<p>Với <strong>${numShards} shards</strong> và <strong>${dataSize}</strong> dữ liệu:</p>`;
+        recommendation += `<ul><li><strong>Cấu hình đề xuất:</strong> Mỗi shard nên là một replica set (1 primary, 2 secondaries) để đảm bảo tính sẵn sàng cao (High Availability).</li>`;
+        
+        if (numShards <= 3 && ['100TB', '1PB'].includes(dataSize)) {
+            recommendation += `<li style="color:var(--warning);"><strong>Cảnh báo:</strong> ${numShards} shards có thể là quá ít cho ${dataSize} dữ liệu. Cân nhắc tăng số lượng shard để cải thiện hiệu suất ghi và phân tán tải.</li>`;
+        } else if (numShards >= 10 && dataSize === '1TB') {
+            recommendation += `<li style="color:var(--warning);"><strong>Lưu ý:</strong> ${numShards} shards có thể là quá nhiều cho ${dataSize} dữ liệu, gây tăng chi phí và độ phức tạp quản lý không cần thiết.</li>`;
+        } else {
+            recommendation += `<li style="color:var(--success);"><strong>Nhận xét:</strong> Cấu hình này có vẻ hợp lý.</li>`;
+        }
+        recommendation += `</ul>`;
 
-    if (performanceComparisonChart) {
-      performanceComparisonChart.data.datasets[0].data = [baseLatency * 4, Math.round(baseThroughput / 3), Math.min(95, baseCPU + 20)];
-      performanceComparisonChart.data.datasets[1].data = [baseLatency, baseThroughput, baseCPU];
-      performanceComparisonChart.update();
-    }
-  });
-  $('#add-shard').addEventListener('click', () => {
-    if (!scalabilityChart) return;
-    const nextShardCount = scalabilityChart.data.labels[scalabilityChart.data.labels.length - 1] + 1;
-    scalabilityChart.data.labels.push(nextShardCount);
-    const lastT = scalabilityChart.data.datasets[0].data.slice(-1)[0];
-    const lastL = scalabilityChart.data.datasets[1].data.slice(-1)[0];
-    const newT = +(lastT + Math.max(0.15, 0.35 - lastT * 0.02)).toFixed(2);
-    const newL = Math.max(18, Math.round(lastL * 0.87));
-    scalabilityChart.data.datasets[0].data.push(newT);
-    scalabilityChart.data.datasets[1].data.push(newL);
-    scalabilityChart.update();
-  });
+        let visual = '<div style="display: flex; justify-content: center; gap: 12px; margin: 14px 0; flex-wrap: wrap;">';
+        for (let i = 1; i <= numShards; i++) {
+            visual += `<div class="shard-mini" title="Shard ${i} Replica Set">Shard ${i}</div>`;
+        }
+        visual += '</div>';
 
-  // Prevent bubbling from sliders interfering with DnD
-  ;['load-level','shards','chunks'].forEach(id=>{
-    const el = document.getElementById(id);
-    ['mousedown','touchstart'].forEach(evt => el.addEventListener(evt, e => e.stopPropagation()));
-  });
+        resultEl.innerHTML = visual + recommendation;
+    });
 
-  // ====== NEW: Architecture design click ======
-  $('#design-architecture').addEventListener('click', () => {
-    const n = parseInt($('#custom-shards').value, 10);
-    const size = $('#custom-data').value;
-    const boxes = Array.from({length:n}, (_,i)=> `<div class="shard-mini">Shard ${i+1}</div>`).join('');
-    $('#architecture-result').innerHTML = `
-      <div class="architecture-visual">
-        <div style="display:flex;justify-content:center;gap:12px;margin:14px 0;flex-wrap:wrap;">${boxes}</div>
-        <p>Đề xuất: ${n} shard cho ${size}, mỗi shard là <b>replica set 3 node</b> + <b>3 config servers</b> + <b>2 mongos</b>.</p>
-      </div>`;
-    toast('Đã dựng kiến trúc gợi ý');
-  });
 
-  // ====== NEW: Connection String Helper ======
-  function addConnectionHelperUI(){
-    // add button
-    const btn = document.createElement('button');
-    btn.id = 'btn-conn-helper';
-    btn.className = 'btn-secondary';
-    btn.innerHTML = `<i class="fas fa-link"></i> Trợ lý Chuỗi Kết Nối`;
-    $('.controls').appendChild(btn);
+    // ====== Performance tab: load slider & add shard chart ======
+    const loadMap = { 1: 'Thấp', 2: 'Trung bình', 3: 'Cao' };
+    $('#load-level').addEventListener('input', (e) => {
+      const v = parseInt(e.target.value, 10);
+      $('#load-value').textContent = loadMap[v];
 
-    // modal
-    const modal = document.createElement('div');
-    modal.className = 'modal'; modal.id='conn-modal';
-    modal.innerHTML = `
-      <div class="modal-card">
-        <div class="modal-header">
-          <h3><i class="fas fa-plug"></i> Connection String Helper</h3>
-          <i class="fas fa-times close-conn" style="cursor:pointer;"></i>
-        </div>
-        <div class="grid">
-          <div>
-            <label>Chế độ</label>
-            <select id="conn-mode">
-              <option value="srv" selected>SRV (mongodb+srv://)</option>
-              <option value="manual">Manual (mongodb://)</option>
-            </select>
-          </div>
-          <div>
-            <label>Tên ứng dụng (appName)</label>
-            <input id="conn-app" placeholder="myApp">
-          </div>
-          <div>
-            <label>Username</label>
-            <input id="conn-user" placeholder="user123">
-          </div>
-          <div>
-            <label>Password</label>
-            <input id="conn-pass" placeholder="••••••••" type="password">
-          </div>
-          <div>
-            <label>Cluster/Domain (SRV)</label>
-            <input id="conn-srv" placeholder="cluster0.xxxx.mongodb.net">
-          </div>
-          <div>
-            <label>Hosts (Manual, phẩy)</label>
-            <input id="conn-hosts" placeholder="host1:27017,host2:27017">
-          </div>
-          <div>
-            <label>Database</label>
-            <input id="conn-db" placeholder="appdb">
-          </div>
-          <div>
-            <label>Options</label>
-            <input id="conn-opts" placeholder="retryWrites=true&readPreference=primary">
-          </div>
-        </div>
-        <div class="grid-1" style="margin-top:12px;">
-          <div class="row">
-            <button id="btn-build" class="btn-success" style="flex:1"><i class="fas fa-hammer"></i> Build String</button>
-            <button id="btn-copy" style="flex:1"><i class="fas fa-copy"></i> Copy</button>
-          </div>
-          <div>
-            <p><b>Chuỗi đầy đủ:</b> <span id="conn-full" class="code-inline"></span></p>
-            <p class="muted">Hiển thị gọn: <span id="conn-masked" class="code-inline"></span></p>
-          </div>
-        </div>
-      </div>`;
-    document.body.appendChild(modal);
+      // Make changes more dramatic for better feedback
+      const baseThroughput = v === 1 ? 900 : v === 2 ? 1250 : 1800;
+      const baseLatency = v === 1 ? 28 : v === 2 ? 42 : 78;
+      const baseCPU = v === 1 ? 45 : v === 2 ? 65 : 88;
 
-    // events
-    btn.addEventListener('click', ()=> modal.style.display='grid');
-    modal.querySelector('.close-conn').addEventListener('click', ()=> modal.style.display='none');
-    modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none'; });
+      $('#throughput-value').textContent = baseThroughput.toLocaleString();
+      $('#latency-value').textContent = baseLatency + 'ms';
+      $('#cpu-value').textContent = baseCPU + '%';
 
-    $('#btn-build').addEventListener('click', ()=>{
-      const mode = $('#conn-mode').value;
-      const u = encodeURIComponent($('#conn-user').value || '');
-      const p = encodeURIComponent($('#conn-pass').value || '');
-      const db = $('#conn-db').value || '';
-      const app = $('#conn-app').value ? `&appName=${encodeURIComponent($('#conn-app').value)}` : '';
-      const opts = $('#conn-opts').value ? `&${$('#conn-opts').value.replace(/^\&/,'')}` : '';
-
-      let full = '';
-      if (mode === 'srv') {
-        const srv = $('#conn-srv').value || 'cluster0.xxxx.mongodb.net';
-        const auth = (u || p) ? `${u}:${p}@` : '';
-        full = `mongodb+srv://${auth}${srv}/${db}?${(opts+app).replace(/^\&/,'')}`;
-      } else {
-        const hosts = $('#conn-hosts').value || 'host1:27017,host2:27017';
-        const auth = (u || p) ? `${u}:${p}@` : '';
-        full = `mongodb://${auth}${hosts}/${db}?${(opts+app).replace(/^\&/,'')}`;
+      if (performanceComparisonChart) {
+        performanceComparisonChart.data.datasets[0].data = [baseLatency * 5, Math.round(baseThroughput / 3.5), Math.min(95, baseCPU + 10)];
+        performanceComparisonChart.data.datasets[1].data = [baseLatency, baseThroughput, baseCPU];
+        performanceComparisonChart.update();
       }
-      $('#conn-full').textContent = full;
-      const masked = full.replace(/:\/\/([^:\/]+):([^@]+)@/,'://$1:***@');
-      $('#conn-masked').textContent = masked;
-      toast('Đã build connection string');
-    });
-    $('#btn-copy').addEventListener('click', ()=> copyText($('#conn-full').textContent || ''));
-  }
-
-  // ====== NEW: Topology Mini-Map ======
-  function addTopologyCard(){
-    const card = document.createElement('div');
-    card.className='diagram-card';
-    card.innerHTML = `
-      <div class="diagram-title"><i class="fas fa-network-wired"></i> Topology Mini-Map</div>
-      <div class="topology" id="topology"></div>
-    `;
-    $('#interactive-cluster').appendChild(card);
-    redrawTopology();
-  }
-  function redrawTopology(){
-    const root = $('#topology'); if(!root) return;
-    root.innerHTML = '';
-    const W = root.clientWidth || root.offsetWidth || 600, H = 260;
-
-    // Nodes
-    const nodes = [];
-    const addNode = (id, label, x, y, extra='')=>{
-      const n = document.createElement('div');
-      n.className='top-node'; n.id='top-'+id; n.style.left=x+'px'; n.style.top=y+'px';
-      n.innerHTML = `<div>${label}</div><div class="badge ${extra.includes('down')?'down':'ok'}" data-status="${id}">${extra.includes('down')?'DOWN':'OK'}</div>`;
-      root.appendChild(n); nodes.push({id, el:n, x, y});
-      n.addEventListener('click', ()=>{
-        toast(`${label}: ${extra.includes('down')?'DOWN':'OK'}`);
-      });
-    };
-
-    const mongos1 = $('#mongos1'); const mongos2 = $('#mongos2');
-    addNode('mongos1', 'Mongos 1', 30, 10);
-    addNode('mongos2', 'Mongos 2', W-140, 10);
-
-    // Configs
-    addNode('cfg1','Config 1', W/2 - 160, 10);
-    addNode('cfg2','Config 2', W/2 - 60, 10);
-    addNode('cfg3','Config 3', W/2 + 40, 10);
-
-    // Shards (from UI)
-    const shards = getShardElements();
-    const gap = Math.min(180, (W-80)/Math.max(1, shards.length));
-    shards.forEach((s, i)=>{
-      const id = s.id;
-      const isDown = shardDownSet.has(id);
-      addNode(id, id, 40 + i*gap, 160, isDown?'down':'ok');
     });
 
-    // Links
-    const addLink = (fromId, toId)=>{
-      const from = nodes.find(n=>n.id===fromId), to = nodes.find(n=>n.id===toId);
-      if(!from || !to) return;
-      const dx = (to.x - from.x) + 60, dy = (to.y - from.y) + 20;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      const angle = Math.atan2(dy, dx) * 180/Math.PI;
-      const l = document.createElement('div');
-      l.className='top-link'; l.style.left=(from.x+60)+'px'; l.style.top=(from.y+20)+'px'; l.style.width=dist+'px'; l.style.transform=`rotate(${angle}deg)`;
-      root.appendChild(l);
-    };
-    ['mongos1','mongos2','cfg1','cfg2','cfg3'].forEach(m=>{
-      shards.forEach(s=> addLink(m, s.id));
+    $('#add-shard').addEventListener('click', () => {
+      if (!scalabilityChart) return;
+      const currentLabels = scalabilityChart.data.labels;
+      if (currentLabels.length >= 10) return; // Cap at 10 shards for demo
+      const nextShardCount = currentLabels[currentLabels.length - 1] + 1;
+      scalabilityChart.data.labels.push(nextShardCount);
+
+      // naive growth: throughput up, latency down (diminishing returns)
+      const lastT = scalabilityChart.data.datasets[0].data.slice(-1)[0];
+      const lastL = scalabilityChart.data.datasets[1].data.slice(-1)[0];
+      const newT = +(lastT + Math.max(0.15, 0.4 / nextShardCount)).toFixed(2);
+      const newL = Math.max(18, Math.round(lastL * 0.9));
+
+      scalabilityChart.data.datasets[0].data.push(newT);
+      scalabilityChart.data.datasets[1].data.push(newL);
+      scalabilityChart.update();
     });
-  }
 
-  // ====== NEW: Heatmap (per shard key ranges) ======
-  function ensureHeatmapUI(){
-    const step = $('#interaction-tab .step-by-step .step'); // first step area exists
-    // create container if not exists
-    if(!$('#heatmap-wrap')){
-      const wrap = document.createElement('div');
-      wrap.id='heatmap-wrap';
-      wrap.innerHTML = `
-        <div class="diagram-title" style="margin-top:10px;"><i class="fas fa-th"></i> Heatmap phân phối (theo Shard Key)</div>
-        <div class="heatmap" id="heatmap"></div>
-        <div class="heat-legend"><span>Ít</span><span>Nhiều</span></div>
-      `;
-      step.appendChild(wrap);
-    }
-    renderHeatmap();
-  }
-  function renderHeatmap(){
-    const el = $('#heatmap'); if(!el) return;
-    const shards = getShardElements();
-    const cells = 10; // 10 ranges
-    el.innerHTML = '';
-    // Count chunk per shard per bucket
-    const buckets = shards.map(s=>{
-      const arr = Array(cells).fill(0);
-      $$('.chunk', s).forEach(c=>{
-        const [min, max] = c.getAttribute('data-range').split('-').map(n=>parseInt(n,10));
-        const b = Math.min(cells-1, Math.floor((min-1)/ (9000/cells)));
-        arr[b] += 1;
-      });
-      return arr;
-    });
-    // Normalize and draw
-    for(let b=0;b<cells;b++){
-      const sum = buckets.reduce((a,acc)=> a + (acc[b]||0), 0);
-      const level = Math.min(8, Math.round(sum)); // 0..8
-      const cell = document.createElement('div');
-      cell.className='heat-cell'; cell.setAttribute('data-v', level);
-      el.appendChild(cell);
-    }
-  }
-
-  // ====== NEW: Query Plan Viewer ======
-  function showPlanFor(queryObj, routedShardId){
-    let panel = $('#plan-viewer');
-    if(!panel){
-      panel = document.createElement('div');
-      panel.id='plan-viewer';
-      panel.className='simulation-result';
-      panel.innerHTML = `<div class="diagram-title"><i class="fas fa-stream"></i> Query Plan</div><div id="plan-steps"></div>`;
-      $('#interaction-tab .step-by-step').appendChild(panel);
-    }
-    const steps = [];
-    steps.push({icon:'fas fa-sign-in-alt', text:'Client gửi truy vấn tới Mongos'});
-    if (Object.keys(queryObj).length === 1 && ('user_id' in queryObj)) {
-      steps.push({icon:'fas fa-crosshairs', text:`Mongos xác định shard theo range user_id → <b>${routedShardId}</b>`});
-      steps.push({icon:'fas fa-database', text:`Shard <b>${routedShardId}</b> scan theo index shard key (giả lập)`});
-    } else {
-      steps.push({icon:'fas fa-random', text:`Mongos broadcast tới tất cả shard (giả lập)`});
-      steps.push({icon:'fas fa-filter', text:'Shard lọc dữ liệu cục bộ'});
-      steps.push({icon:'fas fa-compress-arrows-alt', text:'Mongos merge kết quả'});
-    }
-    steps.push({icon:'fas fa-check', text:'Trả kết quả cho Client'});
-
-    const host = $('#plan-steps');
-    host.innerHTML = steps.map(s=> `<div style="display:flex; align-items:center; gap:10px; margin:6px 0;"><i class="${s.icon}"></i><span>${s.text}</span></div>`).join('');
-  }
-
-  // ====== NEW: Fault Injection (simulate shard down) ======
-  function addFaultInjectionUI(){
-    const wrap = document.createElement('div');
-    wrap.className='control-group';
-    wrap.innerHTML = `
-      <label><i class="fas fa-bug"></i> Mô phỏng sự cố:</label>
-      <div class="row">
-        <select id="fi-target" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ddd;"></select>
-        <button id="fi-toggle" class="btn-danger" style="flex:1"><i class="fas fa-power-off"></i> Toggle DOWN/UP</button>
-      </div>
-      <div class="muted" style="margin-top:6px;">Shard DOWN sẽ bị bỏ qua trong định tuyến.</div>
-    `;
-    $('.controls').appendChild(wrap);
-    refreshFaultTargets();
-    $('#fi-toggle').addEventListener('click', ()=>{
-      const id = $('#fi-target').value;
-      if (!id) return;
-      if (shardDownSet.has(id)) shardDownSet.delete(id); else shardDownSet.add(id);
-      // Update badges
-      const b1 = document.querySelector(`.badge[data-status="${id}"]`); if (b1){ b1.classList.toggle('down'); b1.classList.toggle('ok'); b1.textContent = b1.classList.contains('down')?'DOWN':'OK'; }
-      const b2 = document.querySelector(`.top-node .badge[data-status="${id}"]`); if (b2){ b2.classList.toggle('down'); b2.classList.toggle('ok'); b2.textContent = b2.classList.contains('down')?'DOWN':'OK'; }
-      toast(`${id} → ${shardDownSet.has(id)?'DOWN':'UP'}`);
-      redrawTopology();
-      saveState();
-    });
-  }
-  function refreshFaultTargets(){
-    const sel = $('#fi-target'); if(!sel) return;
-    sel.innerHTML = getShardElements().map(s=> `<option value="${s.id}">${s.id}</option>`).join('');
-  }
-
-  // ====== NEW: Extra FAQ ======
-  function addMoreFaq(){
-    const data = [
-      {q:'Khi nào nên dùng sharding?', a:'Khi dữ liệu/quy mô truy vấn vượt khả năng 1 replica set: dung lượng, thông lượng hoặc độ trễ theo vùng.'},
-      {q:'Cách chọn shard key tốt?', a:'Cardinality cao, phân phối đều, truy vấn lọc được theo key, tránh hotspot (key tăng tuần tự).'},
-      {q:'Kích thước chunk?', a:'Mặc định ~64MB, tự split & move khi quá ngưỡng.'},
-      {q:'Balancer làm gì?', a:'Theo dõi lệch chunk giữa shards và di chuyển để cân bằng, theo lịch và throttling.'},
-      {q:'App kết nối tới đâu?', a:'Kết nối tới mongos (có thể nhiều seed hoặc SRV); không kết nối trực tiếp shard.'},
-      {q:'Transaction trong sharding?', a:'Hỗ trợ multi-document qua mongos, nhưng tốn kém hơn; nên thiết kế để nằm trong 1 shard nếu có thể.'},
-      {q:'Đọc theo vùng địa lý?', a:'Key theo khu vực + read preference phù hợp để giảm độ trễ xuyên vùng.'},
-      {q:'Mất 1 shard thì sao?', a:'Nếu replica set còn quorum thì vẫn phục vụ; mất hoàn toàn shard chứa dữ liệu → thiếu dữ liệu phần đó.'}
-    ];
-    const root = document.querySelector('#faq-tab .faq-section');
-    data.forEach(({q,a})=>{
-      const el = document.createElement('div');
-      el.className='faq-item';
-      el.innerHTML = `<div class="faq-question"><span>${q}</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>${a}</p></div>`;
-      root.appendChild(el);
-      el.querySelector('.faq-question').addEventListener('click',()=> el.classList.toggle('active'));
-    });
-  }
-
-  // ====== Persist minimal state ======
-  function saveState(){
-    try{
-      const state = {
-        shards: getShardElements().length,
-        chunks: $$('.chunk').length,
-        dist: currentDistribution,
-        down: Array.from(shardDownSet),
-      };
-      localStorage.setItem('mongoSimState', JSON.stringify(state));
-    }catch(e){}
-  }
-  function loadState(){
-    try{
-      const s = JSON.parse(localStorage.getItem('mongoSimState')||'{}');
-      if (s.shards && s.shards !== getShardElements().length){
-        $('#shards').value = s.shards; $('#shard-count').textContent = s.shards; regenerateShards(s.shards);
-      }
-      if (s.chunks){ $('#chunks').value = s.chunks; $('#chunk-count').textContent = s.chunks; ensureChunkCount(s.chunks); }
-      if (s.dist){ $('#data-distribution').value = s.dist; currentDistribution = s.dist; redistributeChunks(s.dist); }
-      if (Array.isArray(s.down)){ shardDownSet = new Set(s.down); s.down.forEach(id=>{
-        const b = document.querySelector(`.badge[data-status="${id}"]`); if (b){ b.classList.remove('ok'); b.classList.add('down'); b.textContent='DOWN'; }
-      }); }
-    }catch(e){}
-  }
-
-  // ====== Boot ======
-  (function boot() {
-    renderInitial();
-    initChartsSafe();
-    wireControls();
-    wireTabsAndFaq();
-    updateDistributionDisplay();
-    initDataFlows();
-
-    addConnectionHelperUI();
-    addTopologyCard();
-    ensureHeatmapUI();
-    addFaultInjectionUI();
-    addMoreFaq();
-    refreshFaultTargets();
-    loadState();
-
-    // default: turn on Interaction key chart sync
-    updateKeyDistributionChart();
-  })();
-</script>
-
+    // ====== Boot ======
+    (function boot() {
+      renderInitial();
+      initCharts();
+      wireControls();
+      wireTabsAndFaq();
+      updateDistributionDisplay();
+      // Set initial explanation for default strategy
+      const explanationBox = $('#distribution-explanation');
+      explanationBox.innerHTML = distributionExplanations[currentDistribution];
+      explanationBox.style.display = 'block';
+      // Initial draw of bus lines
+      requestAnimationFrame(initDataFlows);
+    })();
+  </script>
 </body>
-
 </html>
