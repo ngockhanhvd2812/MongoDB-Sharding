@@ -1206,6 +1206,22 @@
     const shardsContainer = $('#shards-container');
 
     function getShardElements() { return $$('.shards-container .shard'); }
+    
+    // Simulate query (random userId -> resolve by chunk ranges if possible)
+    function routeUserId(userId) {
+      // try to find chunk including userId
+      const chunks = $$('.chunk');
+      for (const ch of chunks) {
+        const [min, max] = ch.getAttribute('data-range').split('-').map((n) => parseInt(n, 10));
+        if (userId >= min && userId <= max) {
+          return ch.closest('.shard')?.id || 'shard1';
+        }
+      }
+      // fallback by thirds
+      if (userId <= 3000) return 'shard1';
+      if (userId <= 6000) return 'shard2';
+      return 'shard3';
+    }
 
     function createShard(id, label) {
       const el = document.createElement('div');
@@ -1510,22 +1526,6 @@
         }
         updateDistributionDisplay();
       });
-
-      // Simulate query (random userId -> resolve by chunk ranges if possible)
-      function routeUserId(userId) {
-        // try to find chunk including userId
-        const chunks = $$('.chunk');
-        for (const ch of chunks) {
-          const [min, max] = ch.getAttribute('data-range').split('-').map((n) => parseInt(n, 10));
-          if (userId >= min && userId <= max) {
-            return ch.closest('.shard')?.id || 'shard1';
-          }
-        }
-        // fallback by thirds
-        if (userId <= 3000) return 'shard1';
-        if (userId <= 6000) return 'shard2';
-        return 'shard3';
-      }
     }
 
     // Visual highlight for a routed shard
