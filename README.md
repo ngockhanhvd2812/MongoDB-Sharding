@@ -1,4 +1,4 @@
-[![🌐 Xem Website](https://img.shields.io/badge/Live_Demo-Click_Here-orange?style=for-the-badge&logo=firefox-browser&logoColor=white)](https://ngockhanhvd2812.github.io/mongodb-sharding/)
+[![🌐 Xem Website](https://img.shields.io/badge/Live_Demo-Click_Here-orange?style=for-the-badge&logo=firefox-browser&logoColor=white)](https://ngockhanhvd2812.github.io/MongoDB-Sharding/)
 
 # 🚀 MongoDB Sharding Trực Quan
 
