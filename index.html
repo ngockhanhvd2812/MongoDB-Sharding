@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MongoDB Sharding - Trải Nghiệm Tương Tác Hoàn Chỉnh (Fixed)</title>
+  <title>MongoDB Sharding - Advanced Interactive Experience</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,6 +22,20 @@
       --text-light: #f5f5f5;
       --card-bg: rgba(255, 255, 255, 0.95);
       --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      --glow: 0 0 20px rgba(26, 115, 232, 0.3);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --primary: #4285f4;
+      --secondary: #1976d2;
+      --accent: #26c6da;
+      --light: #263238;
+      --dark: #1a1a1a;
+      --text: #e0e0e0;
+      --text-light: #ffffff;
+      --card-bg: rgba(33, 33, 33, 0.95);
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
 
     * {
@@ -65,6 +79,49 @@
       margin-bottom: 30px;
       color: var(--text-light);
       position: relative;
+    }
+
+    .header-controls {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 15px;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .performance-indicator {
+      background: var(--success);
+      border-radius: 50px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      animation: pulse-indicator 2s infinite;
+    }
+
+    @keyframes pulse-indicator {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
 
     .logo {
@@ -163,6 +220,48 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       position: relative;
+      overflow: hidden;
+    }
+
+    .shard-cluster::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(26, 115, 232, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 6s infinite linear;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     .controls {
@@ -213,13 +312,32 @@
       position: relative;
       animation: pulse 2s infinite;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: var(--transition);
       z-index: 10;
       user-select: none;
     }
 
+    .mongos::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      background: var(--success);
+      border-radius: 50%;
+      border: 3px solid white;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.3; }
+    }
+
     .mongos:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: var(--glow);
     }
 
     .mongos i {
@@ -242,15 +360,51 @@
       min-width: 220px;
       text-align: center;
       position: relative;
-      transition: all 0.3s ease;
+      transition: var(--transition);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(26, 115, 232, 0.15);
       z-index: 10;
+      overflow: hidden;
+    }
+
+    .shard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--success), var(--warning), var(--danger));
+      background-size: 200% 100%;
+      animation: load-bar 3s infinite;
+    }
+
+    @keyframes load-bar {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .shard:hover {
       background: rgba(26, 115, 232, 0.15);
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: var(--glow);
+    }
+
+    .shard-status {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px currentColor;
+      animation: pulse-status 2s infinite;
+    }
+
+    @keyframes pulse-status {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
     }
 
     .shard-header {
@@ -856,20 +1010,138 @@
       font-weight: bold;
     }
 
+    /* Advanced Tools Styles */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--glow);
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .code-editor {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+      border-radius: 8px;
+      padding: 15px;
+      min-height: 200px;
+      border: none;
+      resize: vertical;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .terminal-output {
+      background: #000;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 15px;
+      border-radius: 8px;
+      min-height: 150px;
+      overflow-y: auto;
+      border: 1px solid #333;
+    }
+
+    /* Real-time Monitoring Styles */
+    .monitor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .monitor-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .monitor-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 10px 0;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .monitor-trend {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .trend-up {
+      background: rgba(76, 175, 80, 0.2);
+      color: var(--success);
+    }
+
+    .trend-down {
+      background: rgba(244, 67, 54, 0.2);
+      color: var(--danger);
+    }
+
+    .monitor-chart {
+      height: 100px;
+      margin-top: 10px;
+    }
+
   </style>
 </head>
 
 <body>
   <div class="container">
     <header>
+      <div class="header-controls">
+        <div class="performance-indicator">
+          <i class="fas fa-circle"></i>
+          <span>System Online</span>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
       <div class="logo"><i class="fas fa-sitemap"></i></div>
-      <h1>MongoDB Sharding - Trải Nghiệm Tương Tác Hoàn Chỉnh</h1>
+      <h1>MongoDB Sharding - Advanced Interactive Experience</h1>
       <div class="tabs">
         <div class="tab active" data-tab="overview">Tổng Quan</div>
         <div class="tab" data-tab="visualization">Mô Phỏng</div>
         <div class="tab" data-tab="interaction">Thực Hành</div>
         <div class="tab" data-tab="performance">Hiệu Suất</div>
         <div class="tab" data-tab="faq">FAQ</div>
+        <div class="tab" data-tab="advanced">Advanced Tools</div>
+        <div class="tab" data-tab="monitoring">Real-time Monitor</div>
       </div>
     </header>
 
@@ -1215,27 +1487,186 @@
     <footer>
       <p>MongoDB Sharding Interactive Experience &copy; 2025 - Nguyễn Ngọc Khánh</p>
     </footer>
-  </div>
 
-  <!-- Chunk Detail Popup -->
-  <div class="backdrop" id="chunk-backdrop"></div>
-  <div class="chunk-popup" id="chunk-popup">
-    <span class="close-popup" id="close-chunk-popup">&times;</span>
-    <h3><i class="fas fa-cube"></i> Chi Tiết Chunk</h3>
-    <div class="chunk-popup-content" id="chunk-popup-content">
-      <p><strong>ID:</strong> <span id="chunk-id-detail"></span></p>
-      <p><strong>Phạm vi (Range):</strong> <span id="chunk-range-detail"></span></p>
-      <p><strong>Shard hiện tại:</strong> <span id="chunk-shard-detail"></span></p>
-      <p><strong>Số lượng tài liệu (ước tính):</strong> <span id="chunk-docs-detail"></span></p>
+    <!-- Advanced Tools Tab -->
+    <div class="tab-content" id="advanced-tab">
+      <div class="explanation">
+        <h2><i class="fas fa-tools"></i> Advanced MongoDB Sharding Tools</h2>
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-header">
+              <i class="fas fa-code"></i>
+              <h3>Shard Key Analyzer</h3>
+            </div>
+            <p>Analyze your data distribution and get recommendations for optimal shard keys.</p>
+            <textarea class="code-editor" id="data-sample" placeholder="Paste your MongoDB document sample here...
+{
+  \"user_id\": 12345,
+  \"timestamp\": \"2023-01-01T10:00:00Z\",
+  \"location\": \"US-East\",
+  \"product_id\": \"ABC123\"
+}"></textarea>
+            <button id="analyze-shard-key"><i class="fas fa-search"></i> Analyze Shard Key</button>
+            <div class="terminal-output" id="shard-analysis-result">
+              <div>Ready for analysis...</div>
+            </div>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-header">
+              <i class="fas fa-database"></i>
+              <h3>Chunk Migration Simulator</h3>
+            </div>
+            <p>Simulate chunk migration scenarios and their impact on performance.</p>
+            <div class="control-group">
+              <label for="migration-strategy">Migration Strategy:</label>
+              <select id="migration-strategy">
+                <option value="manual">Manual Migration</option>
+                <option value="auto-balance">Auto Balancer</option>
+                <option value="drain-shard">Drain Shard</option>
+                <option value="zone-migration">Zone-based Migration</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="chunks-to-migrate">Chunks to Migrate: <span id="migration-count" class="value-display">5</span></label>
+              <input type="range" id="chunks-to-migrate" min="1" max="20" value="5" />
+            </div>
+            <button id="simulate-migration"><i class="fas fa-exchange-alt"></i> Simulate Migration</button>
+            <div class="comparison-chart"><canvas id="migrationChart"></canvas></div>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-header">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Security & Compliance Checker</h3>
+            </div>
+            <p>Validate your sharding configuration against security best practices.</p>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="check-auth" checked> Authentication Enabled
+              </label>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="check-ssl"> SSL/TLS Encryption
+              </label>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="check-audit" checked> Audit Logging
+              </label>
+            </div>
+            <button id="run-security-check"><i class="fas fa-lock"></i> Run Security Check</button>
+            <div class="terminal-output" id="security-result">
+              <div>Security check results will appear here...</div>
+            </div>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-header">
+              <i class="fas fa-chart-line"></i>
+              <h3>Query Performance Profiler</h3>
+            </div>
+            <p>Profile query performance across shards and identify bottlenecks.</p>
+            <textarea class="code-editor" id="query-input" placeholder="Enter your MongoDB query...
+Example:
+db.users.find({user_id: {$gte: 1000, $lt: 2000}})
+.sort({timestamp: -1})
+.limit(100)"></textarea>
+            <button id="profile-query"><i class="fas fa-stopwatch"></i> Profile Query</button>
+            <div class="comparison-chart"><canvas id="queryProfileChart"></canvas></div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <!-- Real-time Monitoring Tab -->
+    <div class="tab-content" id="monitoring-tab">
+      <div class="explanation">
+        <h2><i class="fas fa-desktop"></i> Real-time Cluster Monitoring</h2>
+        <div class="monitor-grid">
+          <div class="monitor-card">
+            <div class="monitor-trend trend-up">↗ +5%</div>
+            <h3>Operations/sec</h3>
+            <div class="monitor-value" id="ops-per-sec">1,247</div>
+            <div class="monitor-chart"><canvas id="opsChart"></canvas></div>
+          </div>
+          
+          <div class="monitor-card">
+            <div class="monitor-trend trend-down">↘ -12ms</div>
+            <h3>Average Latency</h3>
+            <div class="monitor-value" id="avg-latency">42ms</div>
+            <div class="monitor-chart"><canvas id="latencyChart"></canvas></div>
+          </div>
+          
+          <div class="monitor-card">
+            <div class="monitor-trend trend-up">↗ +2GB</div>
+            <h3>Data Size</h3>
+            <div class="monitor-value" id="data-size">15.2TB</div>
+            <div class="monitor-chart"><canvas id="dataChart"></canvas></div>
+          </div>
+          
+          <div class="monitor-card">
+            <div class="monitor-trend trend-down">↘ -3%</div>
+            <h3>CPU Usage</h3>
+            <div class="monitor-value" id="cpu-usage">67%</div>
+            <div class="monitor-chart"><canvas id="cpuChart"></canvas></div>
+          </div>
+          
+          <div class="monitor-card">
+            <div class="monitor-trend trend-up">↗ +8%</div>
+            <h3>Active Connections</h3>
+            <div class="monitor-value" id="connections">432</div>
+            <div class="monitor-chart"><canvas id="connectionsChart"></canvas></div>
+          </div>
+          
+          <div class="monitor-card">
+            <div class="monitor-trend trend-up">↗ +0.2%</div>
+            <h3>Cache Hit Ratio</h3>
+            <div class="monitor-value" id="cache-hit">94.7%</div>
+            <div class="monitor-chart"><canvas id="cacheChart"></canvas></div>
+          </div>
+        </div>
+        
+        <div class="tool-card" style="margin-top: 20px;">
+          <div class="tool-header">
+            <i class="fas fa-bell"></i>
+            <h3>Alert Console</h3>
+          </div>
+          <div class="terminal-output" id="alert-console">
+            <div style="color: #00ff00;">[2024-01-15 14:30:22] INFO: All shards healthy</div>
+            <div style="color: #ffff00;">[2024-01-15 14:29:18] WARN: Shard2 CPU usage above 80%</div>
+            <div style="color: #00ff00;">[2024-01-15 14:28:45] INFO: Chunk migration completed: chunk_5 → shard3</div>
+            <div style="color: #ff6666;">[2024-01-15 14:27:12] ERROR: Connection timeout to shard1 (resolved)</div>
+            <div style="color: #00ff00;">[2024-01-15 14:26:33] INFO: Balancer cycle completed successfully</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chunk Detail Popup -->
+    <div class="backdrop" id="chunk-backdrop"></div>
+    <div class="chunk-popup" id="chunk-popup">
+      <span class="close-popup" id="close-chunk-popup">&times;</span>
+      <h3><i class="fas fa-cube"></i> Chi Tiết Chunk</h3>
+      <div class="chunk-popup-content" id="chunk-popup-content">
+        <p><strong>ID:</strong> <span id="chunk-id-detail"></span></p>
+        <p><strong>Phạm vi (Range):</strong> <span id="chunk-range-detail"></span></p>
+        <p><strong>Shard hiện tại:</strong> <span id="chunk-shard-detail"></span></p>
+        <p><strong>Số lượng tài liệu (ước tính):</strong> <span id="chunk-docs-detail"></span></p>
+      </div>
+    </div>
 
   <script>
-    // ====== State ======
+    // ====== Enhanced State Management ======
     let drag = { active: false, node: null, ghost: null, originShard: null };
     let currentDistribution = 'random';
     let currentShardKey = 'user_id';
     let distributionChart, performanceComparisonChart, scalabilityChart;
+    let migrationChart, queryProfileChart;
+    let monitoringCharts = {};
+    let monitoringInterval;
+    let particleInterval;
 
     // ====== Helpers ======
     const $ = (q, root = document) => root.querySelector(q);
@@ -1268,12 +1699,12 @@
       return `shard${shardIndex + 1}`;
     }
 
-
     function createShard(id, label) {
       const el = document.createElement('div');
       el.className = 'shard';
       el.id = id;
       el.innerHTML = `
+        <div class="shard-status"></div>
         <div class="shard-header"><i class="fas fa-database"></i> ${label}</div>
         <div class="chunks"></div>
       `;
@@ -1485,7 +1916,6 @@
       }
     `;
     document.head.appendChild(styleSheet);
-
 
     window.addEventListener('resize', initDataFlows);
 
@@ -1990,7 +2420,351 @@
       explanationBox.style.display = 'block';
       // Initial draw of bus lines
       requestAnimationFrame(initDataFlows);
+      
+      // Initialize new features
+      initTheme();
+      startParticleEffect();
+      initAdvancedTools();
+      initMonitoring();
     })();
+
+    // ====== Theme Toggle ======
+    function initTheme() {
+      const themeToggle = $('#theme-toggle');
+      if (!themeToggle) return;
+      
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      
+      if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+      
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    }
+
+    // ====== Particle Effects ======
+    function createParticle() {
+      const cluster = $('#interactive-cluster');
+      if (!cluster) return;
+      
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 6 + 's';
+      particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+      
+      cluster.appendChild(particle);
+      
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 10000);
+    }
+
+    function startParticleEffect() {
+      particleInterval = setInterval(createParticle, 3000);
+    }
+
+    // ====== Advanced Tools ======
+    function initAdvancedTools() {
+      // Shard Key Analyzer
+      const analyzeBtn = $('#analyze-shard-key');
+      if (analyzeBtn) {
+        analyzeBtn.addEventListener('click', () => {
+          const data = $('#data-sample').value;
+          const result = $('#shard-analysis-result');
+          
+          if (!data.trim()) {
+            result.innerHTML = '<div style="color: #ff6666;">Please provide sample data</div>';
+            return;
+          }
+          
+          try {
+            const parsed = JSON.parse(data);
+            const keys = Object.keys(parsed);
+            let analysis = '<div style="color: #00ff00;">Analysis Results:</div>';
+            
+            keys.forEach(key => {
+              const value = parsed[key];
+              let cardinality = 'Unknown';
+              let recommendation = '';
+              
+              if (key.includes('id')) {
+                cardinality = 'High';
+                recommendation = 'Excellent for even distribution';
+              } else if (key.includes('timestamp') || key.includes('date')) {
+                cardinality = 'High';
+                recommendation = 'WARNING: May cause hot shard issue';
+              } else if (key.includes('location') || key.includes('region')) {
+                cardinality = 'Medium';
+                recommendation = 'Good for geo-distributed queries';
+              } else {
+                cardinality = 'Medium';
+                recommendation = 'Analyze data distribution patterns';
+              }
+              
+              analysis += `<div>• ${key}: Cardinality=${cardinality} - ${recommendation}</div>`;
+            });
+            
+            result.innerHTML = analysis;
+          } catch (e) {
+            result.innerHTML = '<div style="color: #ff6666;">Invalid JSON format</div>';
+          }
+        });
+      }
+      
+      // Migration Simulator
+      const migrateBtn = $('#simulate-migration');
+      if (migrateBtn) {
+        migrateBtn.addEventListener('click', () => {
+          const strategy = $('#migration-strategy').value;
+          const count = $('#chunks-to-migrate').value;
+          
+          // Create migration chart if doesn't exist
+          const canvas = $('#migrationChart');
+          if (canvas && !migrationChart) {
+            migrationChart = new Chart(canvas.getContext('2d'), {
+              type: 'line',
+              data: {
+                labels: ['Before', 'During', 'After'],
+                datasets: [{
+                  label: 'Latency (ms)',
+                  data: [42, 85, 38],
+                  borderColor: 'rgba(255,99,132,1)'
+                }, {
+                  label: 'Throughput (ops/s)',
+                  data: [1200, 800, 1350],
+                  borderColor: 'rgba(54,162,235,1)'
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+              }
+            });
+          }
+          
+          if (migrationChart) {
+            // Simulate different migration impacts
+            const impacts = {
+              manual: { latency: [42, 90, 35], throughput: [1200, 750, 1400] },
+              'auto-balance': { latency: [42, 65, 40], throughput: [1200, 950, 1300] },
+              'drain-shard': { latency: [42, 120, 32], throughput: [1200, 600, 1500] },
+              'zone-migration': { latency: [42, 75, 38], throughput: [1200, 850, 1350] }
+            };
+            
+            const impact = impacts[strategy] || impacts.manual;
+            migrationChart.data.datasets[0].data = impact.latency;
+            migrationChart.data.datasets[1].data = impact.throughput;
+            migrationChart.update();
+          }
+        });
+      }
+      
+      // Security Checker
+      const securityBtn = $('#run-security-check');
+      if (securityBtn) {
+        securityBtn.addEventListener('click', () => {
+          const authCheck = $('#check-auth').checked;
+          const sslCheck = $('#check-ssl').checked;
+          const auditCheck = $('#check-audit').checked;
+          const result = $('#security-result');
+          
+          let score = 0;
+          let report = '<div style="color: #00ff00;">Security Assessment:</div>';
+          
+          if (authCheck) {
+            score += 40;
+            report += '<div style="color: #00ff00;">✓ Authentication: ENABLED</div>';
+          } else {
+            report += '<div style="color: #ff6666;">✗ Authentication: DISABLED</div>';
+          }
+          
+          if (sslCheck) {
+            score += 35;
+            report += '<div style="color: #00ff00;">✓ SSL/TLS: ENABLED</div>';
+          } else {
+            report += '<div style="color: #ffff00;">⚠ SSL/TLS: DISABLED</div>';
+          }
+          
+          if (auditCheck) {
+            score += 25;
+            report += '<div style="color: #00ff00;">✓ Audit Logging: ENABLED</div>';
+          } else {
+            report += '<div style="color: #ffff00;">⚠ Audit Logging: DISABLED</div>';
+          }
+          
+          let riskLevel = 'HIGH';
+          let color = '#ff6666';
+          if (score >= 80) { riskLevel = 'LOW'; color = '#00ff00'; }
+          else if (score >= 50) { riskLevel = 'MEDIUM'; color = '#ffff00'; }
+          
+          report += `<div style="color: ${color}; margin-top: 10px;">Security Score: ${score}/100 (${riskLevel} RISK)</div>`;
+          result.innerHTML = report;
+        });
+      }
+      
+      // Query Profiler
+      const profileBtn = $('#profile-query');
+      if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+          const query = $('#query-input').value;
+          const canvas = $('#queryProfileChart');
+          
+          if (canvas && !queryProfileChart) {
+            queryProfileChart = new Chart(canvas.getContext('2d'), {
+              type: 'bar',
+              data: {
+                labels: ['Shard 1', 'Shard 2', 'Shard 3'],
+                datasets: [{
+                  label: 'Execution Time (ms)',
+                  data: [25, 30, 28],
+                  backgroundColor: ['rgba(26,115,232,0.7)', 'rgba(0,188,212,0.7)', 'rgba(76,175,80,0.7)']
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+              }
+            });
+          }
+          
+          if (queryProfileChart) {
+            // Simulate query profiling
+            const times = [Math.random() * 50 + 10, Math.random() * 50 + 10, Math.random() * 50 + 10];
+            queryProfileChart.data.datasets[0].data = times;
+            queryProfileChart.update();
+          }
+        });
+      }
+      
+      // Wire migration count slider
+      const migrationSlider = $('#chunks-to-migrate');
+      if (migrationSlider) {
+        migrationSlider.addEventListener('input', (e) => {
+          $('#migration-count').textContent = e.target.value;
+        });
+      }
+    }
+
+    // ====== Real-time Monitoring ======
+    function initMonitoring() {
+      // Initialize monitoring charts
+      const chartConfigs = [
+        { id: 'opsChart', label: 'Operations', color: 'rgba(26,115,232,1)' },
+        { id: 'latencyChart', label: 'Latency', color: 'rgba(255,152,0,1)' },
+        { id: 'dataChart', label: 'Data Size', color: 'rgba(76,175,80,1)' },
+        { id: 'cpuChart', label: 'CPU', color: 'rgba(244,67,54,1)' },
+        { id: 'connectionsChart', label: 'Connections', color: 'rgba(156,39,176,1)' },
+        { id: 'cacheChart', label: 'Cache', color: 'rgba(0,188,212,1)' }
+      ];
+      
+      chartConfigs.forEach(config => {
+        const canvas = $('#' + config.id);
+        if (canvas) {
+          monitoringCharts[config.id] = new Chart(canvas.getContext('2d'), {
+            type: 'line',
+            data: {
+              labels: Array.from({length: 10}, (_, i) => i),
+              datasets: [{
+                label: config.label,
+                data: Array.from({length: 10}, () => Math.random() * 100),
+                borderColor: config.color,
+                fill: false,
+                tension: 0.4
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { display: false },
+                y: { display: false }
+              }
+            }
+          });
+        }
+      });
+      
+      // Start real-time updates
+      startMonitoringUpdates();
+    }
+    
+    function startMonitoringUpdates() {
+      monitoringInterval = setInterval(() => {
+        // Update monitoring values
+        const updates = {
+          'ops-per-sec': () => Math.floor(Math.random() * 500 + 1000),
+          'avg-latency': () => Math.floor(Math.random() * 20 + 35) + 'ms',
+          'data-size': () => (Math.random() * 2 + 14).toFixed(1) + 'TB',
+          'cpu-usage': () => Math.floor(Math.random() * 30 + 50) + '%',
+          'connections': () => Math.floor(Math.random() * 100 + 400),
+          'cache-hit': () => (Math.random() * 5 + 92).toFixed(1) + '%'
+        };
+        
+        Object.entries(updates).forEach(([id, generator]) => {
+          const element = $('#' + id);
+          if (element) {
+            element.textContent = generator();
+          }
+        });
+        
+        // Update charts
+        Object.values(monitoringCharts).forEach(chart => {
+          if (chart && chart.data.datasets[0]) {
+            chart.data.datasets[0].data.shift();
+            chart.data.datasets[0].data.push(Math.random() * 100);
+            chart.update('none');
+          }
+        });
+        
+        // Add random alerts
+        if (Math.random() < 0.1) {
+          addAlert();
+        }
+      }, 2000);
+    }
+    
+    function addAlert() {
+      const alertConsole = $('#alert-console');
+      if (!alertConsole) return;
+      
+      const alerts = [
+        { level: 'INFO', color: '#00ff00', msg: 'Chunk balancing completed successfully' },
+        { level: 'WARN', color: '#ffff00', msg: 'High memory usage detected on shard2' },
+        { level: 'INFO', color: '#00ff00', msg: 'New secondary node added to replica set' },
+        { level: 'ERROR', color: '#ff6666', msg: 'Temporary connection loss to config server (recovered)' }
+      ];
+      
+      const alert = alerts[Math.floor(Math.random() * alerts.length)];
+      const timestamp = new Date().toLocaleString();
+      const newAlert = document.createElement('div');
+      newAlert.style.color = alert.color;
+      newAlert.textContent = `[${timestamp}] ${alert.level}: ${alert.msg}`;
+      
+      alertConsole.insertBefore(newAlert, alertConsole.firstChild);
+      
+      // Keep only last 10 alerts
+      while (alertConsole.children.length > 10) {
+        alertConsole.removeChild(alertConsole.lastChild);
+      }
+    }
   </script>
 </body>
 </html>
